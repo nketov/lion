@@ -31,12 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'name:ntext',
 //            'analogs:ntext',
             ['attribute' => 'cars', 'value' => 'cars', 'filter' =>\common\models\Excel::getAutoList()],
-            //'fabricator:ntext',
+            'fabricator:ntext',
             //'quantity',
             //'price',
             //'currency:ntext',
             //'note:ntext',
-            //'store:ntext',
+            'store:ntext',
 
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{view}'
