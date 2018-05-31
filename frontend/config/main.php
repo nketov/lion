@@ -40,8 +40,9 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-//            'enableStrictParsing' => false,
-  
+            'enableStrictParsing' => false,
+            'rules' => [
+            ],
         ],
     ],
     'params' => $params,

@@ -2,7 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ExcelSerch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -16,9 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-<!--    <p>-->
-<!--        --><?//= Html::a('Create Excel', ['create'], ['class' => 'btn btn-success']) ?>
-<!--    </p>-->
+    <!--    <p>-->
+    <!--        --><? //= Html::a('Create Excel', ['create'], ['class' => 'btn btn-success']) ?>
+    <!--    </p>-->
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -30,7 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'code:ntext',
             'name:ntext',
 //            'analogs:ntext',
-            ['attribute' => 'cars', 'value' => 'cars', 'filter' =>\common\models\Excel::getAutoList()],
+            ['attribute' => 'cars',
+                'value' => function ($data) {
+                    return StringHelper::truncate($data->cars, 50);;
+                },
+                'filter' => \common\models\Excel::getAutoList()],
+
             'fabricator:ntext',
             //'quantity',
             //'price',

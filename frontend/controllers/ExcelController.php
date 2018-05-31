@@ -63,6 +63,8 @@ class ExcelController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    
+    /*
     public function actionCreate()
     {
         $model = new Excel();
@@ -75,7 +77,7 @@ class ExcelController extends Controller
             'model' => $model,
         ]);
     }
-
+*/
     /**
      * Updates an existing Excel model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -83,6 +85,7 @@ class ExcelController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+/*
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -95,7 +98,7 @@ class ExcelController extends Controller
             'model' => $model,
         ]);
     }
-
+*/
     /**
      * Deletes an existing Excel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -103,13 +106,14 @@ class ExcelController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    /*
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
-
+*/
     /**
      * Finds the Excel model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

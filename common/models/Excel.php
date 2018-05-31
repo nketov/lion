@@ -51,7 +51,7 @@ class Excel extends \yii\db\ActiveRecord
             'code' => 'Код товара',
             'name' => 'Наименование',
             'analogs' => 'Аналоги',
-            'cars' => 'Автомобиль',
+            'cars' => 'Автомобили',
             'fabricator' => 'Производитель',
             'quantity' => 'Количество',
             'price' => 'Цена',
