@@ -31,7 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'id',
             'code:ntext',
             'name:ntext',
-//            'analogs:ntext',
+            ['attribute' => 'analogs',
+                'value' => function ($data) {
+                    return StringHelper::truncate($data->analogs, 35);
+                }],
             ['attribute' => 'cars',
                 'value' => function ($data) {
                     return StringHelper::truncate($data->cars, 50);;
@@ -40,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'fabricator:ntext',
             //'quantity',
-            //'price',
+            'price',
             //'currency:ntext',
             //'note:ntext',
             'store:ntext',
