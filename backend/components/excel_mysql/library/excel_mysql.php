@@ -1,6 +1,6 @@
 <?php
 
-namespace console\components\excel_mysql;
+namespace backend\components\excel_mysql\library;
 	/**
 	 * Класс импорта файла Excel в таблицу MySQL и экспорта таблицы MySQL в файл Excel
 	 *
@@ -25,6 +25,8 @@ namespace console\components\excel_mysql;
 		 * @throws Exception - Не найдена библиотека PHPExcel
 		 */
 		function __construct($connection, $filename) {
+
+			require_once __DIR__ . "/../PHPExcel/Classes/PHPExcel.php";
 			// Если библиотека PHPExcel не подключена
 			if (!class_exists("\\PHPExcel")) {
 				// Выбрасываем исключение

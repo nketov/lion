@@ -9,7 +9,9 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
+    'language' => 'ru-RU',
     'controllerNamespace' => 'backend\controllers',
+    'defaultRoute' => 'site/upload',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
