@@ -8,18 +8,24 @@ use yii\data\ActiveDataProvider;
 use common\models\Excel;
 
 /**
- * ExcelSerch represents the model behind the search form of `common\models\Excel`.
+ * ExcelSearch represents the model behind the search form of `common\models\Excel`.
  */
-class ExcelSerch extends Excel
+class ExcelSearch extends Excel
 {
+
+    public $method = 0;
+
     /**
      * {@inheritdoc}
+     *   *
      */
+
+
     public function rules()
     {
         return [
             [['id', 'quantity'], 'integer'],
-            [['code', 'name', 'analogs', 'cars', 'fabricator', 'currency', 'note', 'store'], 'safe'],
+            [['code', 'name', 'analogs', 'cars', 'fabricator', 'currency', 'note', 'store', 'method'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -40,7 +46,7 @@ class ExcelSerch extends Excel
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $method = 0)
     {
         $query = Excel::find();
 
@@ -49,6 +55,10 @@ class ExcelSerch extends Excel
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+
+        $dataProvider->sort->defaultOrder['name'] = SORT_ASC;
+
 
         $this->load($params);
 
@@ -65,15 +75,23 @@ class ExcelSerch extends Excel
             'price' => $this->price,
         ]);
 
-        $query->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'analogs', $this->analogs])
-            ->andFilterWhere(['like', 'cars', $this->cars])
-            ->andFilterWhere(['like', 'fabricator', $this->fabricator])
-            ->andFilterWhere(['like', 'currency', $this->currency])
-            ->andFilterWhere(['like', 'note', $this->note])
-            ->andFilterWhere(['like', 'store', $this->store]);
-
+        if ($method) {
+            $query->andFilterWhere(['or',
+                    ['like', 'name', $this->code],
+                    ['like', 'code', $this->code],
+                    ['like', 'analogs', $this->code]]
+            )
+                ->andFilterWhere(['like', 'cars', $this->cars]);
+        } else {
+            $query->andFilterWhere(['like', 'code', $this->code])
+                ->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['like', 'analogs', $this->analogs])
+                ->andFilterWhere(['like', 'cars', $this->cars])
+                ->andFilterWhere(['like', 'fabricator', $this->fabricator])
+                ->andFilterWhere(['like', 'currency', $this->currency])
+                ->andFilterWhere(['like', 'note', $this->note])
+                ->andFilterWhere(['like', 'store', $this->store]);
+        }
         return $dataProvider;
     }
 

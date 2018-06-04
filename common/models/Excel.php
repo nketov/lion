@@ -61,15 +61,15 @@ class Excel extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getAutoList(){
+    public static function getAttrList($attr){
         $unique = array();
         $models = self::find()->all();
         foreach ($models as $model){
             $cars=array();
-            if(false !== strpos($model->cars,',')){
-                $cars=explode(',' ,$model->cars);
+            if(false !== strpos($model->$attr,',')){
+                $cars=explode(',' ,$model->$attr);
             } else {
-                $cars[]=$model->cars;
+                $cars[]=$model->$attr;
             }
             $unique=array_unique (array_merge ($unique, $cars));
             sort($unique);

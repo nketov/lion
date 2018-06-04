@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\ExcelSearch;
 use PHP_Timer;
 use Yii;
 use yii\base\InvalidParamException;
@@ -73,8 +74,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        
-        return $this->redirect('/excel');
+        $searchModel= new ExcelSearch();        
+        return $this->render('index', compact('searchModel'));
     }
 
     /**

@@ -4,7 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Excel;
-use common\models\ExcelSerch;
+use common\models\ExcelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -36,8 +36,8 @@ class ExcelController extends Controller
     public function actionIndex()
     {
      
-        $searchModel = new ExcelSerch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = new ExcelSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams,!Yii::$app->request->isAjax);       
 
         return $this->render('index', [
             'searchModel' => $searchModel,
