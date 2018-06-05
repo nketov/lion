@@ -5,18 +5,9 @@ use yii\grid\GridView;
 use yii\helpers\StringHelper;
 use yii\widgets\Pjax;
 
-/* @var $this yii\web\View */
-/* @var $searchModel common\models\ExcelSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Lion Auto';
-$this->params['breadcrumbs'][] = $this->title;
-
 ?>
-<div class="excel-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <div class="container">
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
   
@@ -27,7 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'options' => ['style' => 'font:bold 12px Arial'],
+        'layout'=>"{items}{summary}{pager}",
+        'options' => ['style' => 'font: 12px FontAwesome'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 //
@@ -35,12 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'code:ntext',
             ['attribute' => 'name',
                 'value' => function ($data) {
-                    return StringHelper::truncate($data->name, 35);
+                    return StringHelper::truncate($data->name, 45);
                 }],
 
             ['attribute' => 'analogs',
                 'value' => function ($data) {
-                    return StringHelper::truncate($data->analogs, 35);
+                    return StringHelper::truncate($data->analogs, 30);
                 }],
             ['attribute' => 'cars',
                 'value' => function ($data) {
@@ -50,9 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'fabricator:ntext',
             //'quantity',
-            'price',
+            ['attribute' => 'price',
+                'headerOptions' => ['style' => 'width:65px '],
+                'value' => function ($data) {
+                    return $data->price.'  €';
+                },
+                'filter' => false],
             //'currency:ntext',
-            //'note:ntext',
+            //
             ['attribute' => 'store',
 
                 'filter' => \common\models\Excel::getAttrList('store')],
@@ -64,3 +61,9 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+

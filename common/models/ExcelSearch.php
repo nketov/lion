@@ -25,7 +25,7 @@ class ExcelSearch extends Excel
     {
         return [
             [['id', 'quantity'], 'integer'],
-            [['code', 'name', 'analogs', 'cars', 'fabricator', 'currency', 'note', 'store', 'method'], 'safe'],
+            [['code', 'name', 'analogs', 'cars', 'fabricator', 'currency', 'store', 'method'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -46,7 +46,7 @@ class ExcelSearch extends Excel
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $method = 0)
+    public function search($params)
     {
         $query = Excel::find();
 
@@ -55,7 +55,6 @@ class ExcelSearch extends Excel
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
 
         $dataProvider->sort->defaultOrder['name'] = SORT_ASC;
 
@@ -75,23 +74,20 @@ class ExcelSearch extends Excel
             'price' => $this->price,
         ]);
 
-        if ($method) {
+
             $query->andFilterWhere(['or',
-                    ['like', 'name', $this->code],
-                    ['like', 'code', $this->code],
-                    ['like', 'analogs', $this->code]]
+                    ['like', 'name', trim($this->code)],
+                    ['like', 'code', trim($this->code)],
+                    ['like', 'analogs', trim($this->code)],
+                    ['like', 'name', trim($this->name)],
+                    ['like', 'analogs', trim($this->analogs)],
+                ]
             )
-                ->andFilterWhere(['like', 'cars', $this->cars]);
-        } else {
-            $query->andFilterWhere(['like', 'code', $this->code])
-                ->andFilterWhere(['like', 'name', $this->name])
-                ->andFilterWhere(['like', 'analogs', $this->analogs])
                 ->andFilterWhere(['like', 'cars', $this->cars])
-                ->andFilterWhere(['like', 'fabricator', $this->fabricator])
+                ->andFilterWhere(['like', 'fabricator', trim($this->fabricator)])
                 ->andFilterWhere(['like', 'currency', $this->currency])
-                ->andFilterWhere(['like', 'note', $this->note])
                 ->andFilterWhere(['like', 'store', $this->store]);
-        }
+
         return $dataProvider;
     }
 

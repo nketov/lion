@@ -115,8 +115,6 @@ class SiteController extends Controller
 
     private function exceltomysql()
     {
-
-
 // Определяем константу для включения режима отладки (режим отладки выключен)
         define("EXCEL_MYSQL_DEBUG", false);
 
@@ -149,9 +147,10 @@ class SiteController extends Controller
                 "quantity",
                 "price",
                 "currency",
-                "note",
-                null,
                 "store",
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -183,7 +182,8 @@ class SiteController extends Controller
                 "TEXT",
                 "TEXT",
                 null,
-                "TEXT",
+                null,
+                null,
                 null,
                 null,
                 null,

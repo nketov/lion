@@ -36,8 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'fabricator:ntext',
             'quantity',
             'price',
-            'currency:ntext',
-            'note:ntext',
+            'currency:ntext',           
             'store:ntext',
         ],
     ]) ?>
