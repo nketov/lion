@@ -16,7 +16,9 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        
     ],
+
 ];
 
 /*  SERVER

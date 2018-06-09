@@ -80,6 +80,32 @@ a.desc:after {
     white-space: nowrap;
 }
 
+table,ul.pagination{
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+.odd{
+
+    background: rgba(225,255,235,0.7) !important;
+}
+
+.even{
+    background: rgba(195,255,215,0.7) !important;
+}
+
+.zero{
+    background: rgba(255,200,200,0.7) !important;
+}
+
+thead{
+    background: rgba(255,255,200,0.35) !important;
+    font : bold 16px 'Open Sans';
+}
+
+
 .grid-view .filters input,
 .grid-view .filters select {
     min-width: 50px;

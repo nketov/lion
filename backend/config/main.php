@@ -11,7 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'language' => 'ru-RU',
     'controllerNamespace' => 'backend\controllers',
-    'defaultRoute' => 'site/upload',
+    'defaultRoute' => 'site/content',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
@@ -46,9 +46,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<action:(content|login|upload)>' => 'site/<action>'
             ],
-        ],
-
+        ],   
     ],
     'params' => $params,
 ];

@@ -2,7 +2,6 @@
 namespace frontend\controllers;
 
 use common\models\ExcelSearch;
-use PHP_Timer;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -77,6 +76,9 @@ class SiteController extends Controller
         $searchModel= new ExcelSearch();        
         return $this->render('index', compact('searchModel'));
     }
+
+    
+    
 
     /**
      * Logs in a user.

@@ -10,8 +10,8 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Excels', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="excel-view">
-
+<div class="container">
+    <div class="col-lg-8">
     <h1><?= Html::encode($this->title) ?></h1>
 
 <!--    <p>-->
@@ -41,4 +41,5 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+</div>
 </div>

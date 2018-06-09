@@ -377,8 +377,8 @@ margin-top: -155px;
 
 .b-search__main{
     text-align: center;
-    height:180px;
-    margin-top: -125px;
+    height:150px;
+    margin-top: -75px;
     padding: 35px 60px 50px 60px;
     z-index: 1000;
     position: relative;
@@ -461,8 +461,8 @@ margin-top: -155px;
 }
 
 .b-search__main-form select{
-    width:90%;
-    margin-right: 10px;
+    width:95%;
+    margin-right: 25px;
     height:42px;
     padding: 10px 20px 10px 25px;
     border:1px solid #eeeeee;
@@ -549,7 +549,7 @@ margin-top: -155px;
 }
 
 .b-search__main-form input{
-    width:90%;
+    width:95%;
     margin-left: 10px;
     height: 42px;
     padding: 10px 20px 10px 25px;

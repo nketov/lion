@@ -52,11 +52,10 @@ class Excel extends \yii\db\ActiveRecord
             'name' => 'Наименование',
             'analogs' => 'Аналоги',
             'cars' => 'Автомобили',
-            'fabricator' => 'Производитель',
-            'quantity' => 'Количество',
+            'fabricator' => 'Произво-дитель',
+            'quantity' => 'Кол-во',
             'price' => 'Цена',
             'currency' => 'Валюта',
-            'note' => 'Примечание',
             'store' => 'Склад',
         ];
     }

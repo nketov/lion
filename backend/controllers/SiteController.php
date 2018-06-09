@@ -3,6 +3,7 @@ namespace backend\controllers;
 
 use app\models\UploadForm;
 use backend\components\excel_mysql\library\Excel_mysql;
+use common\models\Content;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -29,7 +30,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'upload'],
+                        'actions' => ['logout', 'upload', 'content'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -56,6 +57,21 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionContent()
+    {
+        $model = Content::findOne(1);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->render('success', ['message' => 'Данные успешно сохранены!',
+                'title' => 'Содержание сайта']);
+        } else {
+            return $this->render('content', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+
     /**
      * Displays homepage.
      *
@@ -69,8 +85,9 @@ class SiteController extends Controller
         if (Yii::$app->request->isPost) {
             $model->excelFile = UploadedFile::getInstance($model, 'excelFile');
             if ($model->upload()) {
-            $this->exceltomysql();
-                return $this->render('success-upload', ['model' => $model]);
+                $this->exceltomysql();
+                return $this->render('success', ['message' => 'Таблица успешно загружена!',
+                    'title' => 'Загрузка данных из файла']);
             }
         }
 
@@ -119,7 +136,10 @@ class SiteController extends Controller
         define("EXCEL_MYSQL_DEBUG", false);
 
 // Соединение с базой MySQL
-        $connection = new \mysqli("localhost", "root", "", "lion");
+
+//        $connection = new \mysqli("localhost", "root", "", "lion");
+        $connection = new \mysqli("sccc.mysql.tools", "sccc_lion", "s9qjgff2", "sccc_lion");
+
 //// Выбираем кодировку UTF-8
         $connection->set_charset("utf8");
 
@@ -166,6 +186,9 @@ class SiteController extends Controller
                 null,
                 null,
                 null,
+                null,
+                null,
+                null,
             ),
             2,
             false,
@@ -181,6 +204,9 @@ class SiteController extends Controller
                 "DECIMAL(10,2)",
                 "TEXT",
                 "TEXT",
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,

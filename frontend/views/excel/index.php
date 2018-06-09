@@ -8,18 +8,27 @@ use yii\widgets\Pjax;
 ?>
 
     <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-  
+    <?php  echo $this->render('_search', ['searchModel' => $searchModel]); ?>
     <!--    <p>-->
     <!--        --><? //= Html::a('Create Excel', ['create'], ['class' => 'btn btn-success']) ?>
     <!--    </p>-->
    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
         'layout'=>"{items}{summary}{pager}",
-        'options' => ['style' => 'font: 12px FontAwesome'],
+        'options' => ['style' => 'font: bold 14px Tahoma'],
+        'rowOptions'=>function ($model, $key, $index, $grid){
+            $class=$index%2?'odd':'even';  // стилизация четной и нечетной строки
+            if($model->quantity == 0) $class= 'zero';
+            return array('key'=>$key,'index'=>$index,'class'=>$class);
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 //
@@ -32,18 +41,18 @@ use yii\widgets\Pjax;
 
             ['attribute' => 'analogs',
                 'value' => function ($data) {
-                    return StringHelper::truncate($data->analogs, 30);
+                    return StringHelper::truncate($data->analogs, 15);
                 }],
             ['attribute' => 'cars',
                 'value' => function ($data) {
-                    return StringHelper::truncate($data->cars, 35);;
+                    return StringHelper::truncate($data->cars, 30);;
                 },
                 'filter' => \common\models\Excel::getAttrList('cars')],
 
             'fabricator:ntext',
-            //'quantity',
+            'quantity',
             ['attribute' => 'price',
-                'headerOptions' => ['style' => 'width:65px '],
+                'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
                 'value' => function ($data) {
                     return $data->price.'  €';
                 },
@@ -61,9 +70,5 @@ use yii\widgets\Pjax;
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
