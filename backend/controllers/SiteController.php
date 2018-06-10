@@ -137,8 +137,8 @@ class SiteController extends Controller
 
 // Соединение с базой MySQL
 
-//        $connection = new \mysqli("localhost", "root", "", "lion");
-        $connection = new \mysqli("sccc.mysql.tools", "sccc_lion", "s9qjgff2", "sccc_lion");
+        $connection = new \mysqli("localhost", "root", "", "lion");
+//        $connection = new \mysqli("lionau00.mysql.tools", "lionau00_lion", "fqsbp2m3", "lionau00_lion");
 
 //// Выбираем кодировку UTF-8
         $connection->set_charset("utf8");

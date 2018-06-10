@@ -6,13 +6,13 @@ return [
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
-  		'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=lion',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-        ],
+	    'db' => [
+		    'class' => 'yii\db\Connection',
+		    'dsn' => 'mysql:host=localhost;dbname=lion',
+		    'username' => 'root',
+		    'password' => '',
+		    'charset' => 'utf8',
+	    ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -22,13 +22,14 @@ return [
 ];
 
 /*  SERVER
-'db' => [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=sccc.mysql.tools;dbname=sccc_lion',
-    'username' => 'sccc_lion',
-    'password' => 's9qjgff2',
-    'charset' => 'utf8',
-],
+    'components' => [
+  		'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=lionau00.mysql.tools;dbname=lionau00_lion',
+            'username' => 'lionau00_lion',
+            'password' => 'fqsbp2m3',
+            'charset' => 'utf8',
+        ],
 */
 
 /* LOCAL
