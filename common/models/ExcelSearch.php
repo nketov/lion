@@ -54,6 +54,9 @@ class ExcelSearch extends Excel
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
 
         $dataProvider->sort->defaultOrder['name'] = SORT_ASC;
