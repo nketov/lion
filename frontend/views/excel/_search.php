@@ -8,8 +8,6 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-
-
         <?php
         $form = ActiveForm::begin([
             'method' => 'get',
@@ -22,7 +20,7 @@ use yii\widgets\ActiveForm;
         <div class="b-search__main-form wow zoomInUp" data-wow-delay="0.3s">
 
             <div class="row">
-                <div class="col-xs-12 col-md-10">
+                <div class="col-xs-12 col-md-9">
                     <div class="m-firstSelects">
                         <div class="col-xs-4">
                             <?= $form->field($searchModel, 'store')->dropDownList(array_merge(['' => 'На всех складах'],$searchModel::getAttrList('store')))->label(false)?>
@@ -40,10 +38,9 @@ use yii\widgets\ActiveForm;
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-xs-12 text-left s-noPadding">
+                <div class="col-md-3 col-xs-12 text-left s-noPadding">
 
                     <div class="b-search__main-form-submit">
-
                         <button type="submit" class="btn m-btn">Поиск детали<span class="fa fa-angle-right"></span></button>
                     </div>
                 </div>

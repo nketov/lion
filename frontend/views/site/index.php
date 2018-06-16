@@ -1,10 +1,5 @@
 <?php use yii\helpers\Url;
 use yii\widgets\ActiveForm; ?>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <section class="b-search">
     <div class="container">

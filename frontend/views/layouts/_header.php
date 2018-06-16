@@ -14,12 +14,18 @@ $content = common\models\Content::findOne(1);
                     <div class="predefined_styles">
                         <div class="skin-theme-switcher">
                             <h4>Color</h4>
-                            <a href="#" data-switchcolor="color1" class="styleswitch" style="background-color:#869498;"> </a>
-                            <a href="#" data-switchcolor="color2" class="styleswitch" style="background-color:#f76d2b;"> </a>
-                            <a href="#" data-switchcolor="color3" class="styleswitch" style="background-color:#228dcb;"> </a>
-                            <a href="#" data-switchcolor="color4" class="styleswitch" style="background-color:#00bff3;"> </a>
-                            <a href="#" data-switchcolor="color5" class="styleswitch" style="background-color:#2dcc70;"> </a>
-                            <a href="#" data-switchcolor="color6" class="styleswitch" style="background-color:#6054c2;"> </a>
+                            <a href="#" data-switchcolor="color1" class="styleswitch"
+                               style="background-color:#869498;"> </a>
+                            <a href="#" data-switchcolor="color2" class="styleswitch"
+                               style="background-color:#f76d2b;"> </a>
+                            <a href="#" data-switchcolor="color3" class="styleswitch"
+                               style="background-color:#228dcb;"> </a>
+                            <a href="#" data-switchcolor="color4" class="styleswitch"
+                               style="background-color:#00bff3;"> </a>
+                            <a href="#" data-switchcolor="color5" class="styleswitch"
+                               style="background-color:#2dcc70;"> </a>
+                            <a href="#" data-switchcolor="color6" class="styleswitch"
+                               style="background-color:#6054c2;"> </a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +38,12 @@ $content = common\models\Content::findOne(1);
 <header class="b-topBar wow slideInDown" data-wow-delay="0.7s">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-6">
+            <div class="col-sm-2 col-xs-4">
+                <div style=transform:translateY(0px) class="b-topBar__logo wow slideInLeft" data-wow-delay="0.3s">
+                    <a href="/"><img src="images/logo/logo.png"></a>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
                 <div class="b-topBar__addr">
                     <span class="fa fa-map-marker"></span>
                     <?= $content->address ?>
@@ -44,7 +55,7 @@ $content = common\models\Content::findOne(1);
                     <?= $content->phone ?>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-3 col-xs-6">
                 <nav class="b-topBar__nav">
                     <ul>
                         <li><a href="#">Корзина</a></li>
@@ -57,11 +68,15 @@ $content = common\models\Content::findOne(1);
                 <div class="b-topBar__lang">
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle='dropdown'>Валюта</a>
-                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span class="b-topBar__lang-flag m-en"></span><span class="fa fa-caret-down"></span></a>
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                class="b-topBar__lang-flag m-en"></span><span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span class="b-topBar__lang-flag m-en"></span></a></li>
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span class="b-topBar__lang-flag m-es"></span></a></li>
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span class="b-topBar__lang-flag m-de"></span></a></li>
+                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-en"></span></a></li>
+                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-es"></span></a></li>
+                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-de"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,14 +88,12 @@ $content = common\models\Content::findOne(1);
 <nav class="b-nav">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-md-3 col-xs-6">
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
-                    <br>
-                    <br>
-                    <br>
                     <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
-              
-
+                    <p>
+                        Автозапчасти
+                    </p>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-8">

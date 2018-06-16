@@ -6,28 +6,23 @@ use yii\helpers\StringHelper;
 use yii\widgets\Pjax;
 
 ?>
-
+<?php Pjax::begin(); ?>
+<section class="b-search">
     <div class="container">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    <?php Pjax::begin(); ?>
-    <?php  echo $this->render('_search', ['searchModel' => $searchModel]); ?>
-    <!--    <p>-->
-    <!--        --><? //= Html::a('Create Excel', ['create'], ['class' => 'btn btn-success']) ?>
-    <!--    </p>-->
-   
+
+        <?php echo $this->render('_search', ['searchModel' => $searchModel]); ?>
+    </div>
+</section><!--b-search-->
+<div class="container">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
 //        'filterModel' => $searchModel,
-        'layout'=>"{items}{summary}{pager}",
+        'layout' => "{items}{summary}{pager}",
         'options' => ['style' => 'font: bold 14px Tahoma'],
-        'rowOptions'=>function ($model, $key, $index, $grid){
-            $class=$index%2?'odd':'even';  // стилизация четной и нечетной строки
-            if($model->quantity == 0) $class= 'zero';
-            return array('key'=>$key,'index'=>$index,'class'=>$class);
+        'rowOptions' => function ($model, $key, $index, $grid) {
+            $class = $index % 2 ? 'odd' : 'even';  // стилизация четной и нечетной строки
+            if ($model->quantity == 0) $class = 'zero';
+            return array('key' => $key, 'index' => $index, 'class' => $class);
         },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
@@ -54,7 +49,7 @@ use yii\widgets\Pjax;
             ['attribute' => 'price',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
                 'value' => function ($data) {
-                    return $data->price.'  €';
+                    return $data->price . '  €';
                 },
                 'filter' => false],
             //'currency:ntext',
@@ -69,6 +64,16 @@ use yii\widgets\Pjax;
         ],
     ]); ?>
     <?php Pjax::end(); ?>
+    <br>
+    <br>
+    <br>
+    <br>        
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
 
 
