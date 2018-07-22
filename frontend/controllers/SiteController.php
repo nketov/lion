@@ -219,4 +219,15 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionChangeCurrency(){
+               
+        if(Yii::$app->request->isAjax && ($data = Yii::$app->request->post())) {
+            Yii::$app->session->set('currency', $data['currency']);
+            Yii::$app->session->set('currency', $data['currency']);
+        }
+    }
+
+
+
 }

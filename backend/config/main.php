@@ -46,7 +46,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<action:(content|login|upload)>' => 'site/<action>'
+                '<action:(content|login|upload|currency)>' => 'site/<action>'
             ],
         ],   
     ],

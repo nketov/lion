@@ -40,7 +40,7 @@ $content = common\models\Content::findOne(1);
         <div class="row">
             <div class="col-sm-2 col-xs-4">
                 <div style=transform:translateY(0px) class="b-topBar__logo wow slideInLeft" data-wow-delay="0.3s">
-                    <a href="/"><img src="images/logo/logo.png"></a>
+                    <a href="/"><img src="/images/logo/logo.png"></a>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
@@ -52,7 +52,7 @@ $content = common\models\Content::findOne(1);
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__tel">
                     <span class="fa fa-phone"></span>
-                    <?= $content->phone ?>
+                    <a class = 'phones' href=""><?= $content->phone ?></a>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
@@ -60,22 +60,23 @@ $content = common\models\Content::findOne(1);
                     <ul>
                         <li><a href="#">Корзина</a></li>
                         <li><a href="#">Login</a></li>
-
+                       
                     </ul>
                 </nav>
             </div>
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__lang">
                     <div class="dropdown">
+                        <input id="currency"  value="<?=  !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ?>" hidden>
                         <a href="#" class="dropdown-toggle" data-toggle='dropdown'>Валюта</a>
-                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span id="currency-flag"
                                 class="b-topBar__lang-flag m-en"></span><span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                            <li><a id="EUR" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
                                         class="b-topBar__lang-flag m-en"></span></a></li>
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                            <li><a id="USD" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
                                         class="b-topBar__lang-flag m-es"></span></a></li>
-                            <li><a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                            <li><a id="UAH" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
                                         class="b-topBar__lang-flag m-de"></span></a></li>
                         </ul>
                     </div>

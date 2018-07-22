@@ -35,6 +35,7 @@
 //                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     ['label' => 'Содержание сайта', 'icon' => 'tv', 'url' => ['/content'],],
+                    ['label' => 'Курсы валют', 'icon' => 'money', 'url' => ['/currency'],],
                     ['label' => 'Загрузка данных', 'icon' => 'upload', 'url' => ['/upload'],],
 //                    [
 //                        'label' => 'Some tools',

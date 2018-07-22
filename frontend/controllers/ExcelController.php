@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Currency;
 use Yii;
 use common\models\Excel;
 use common\models\ExcelSearch;
@@ -35,14 +36,13 @@ class ExcelController extends Controller
      */
     public function actionIndex()
     {
-     
+           
         $searchModel = new ExcelSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencySign=Currency::$currencySign[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+        return $this->render('index', compact('searchModel','dataProvider', 'currency','currencySign'));        
     }
 
     /**
@@ -53,9 +53,12 @@ class ExcelController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        $model=$this->findModel($id);
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencyName=Currency::$currencyName[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+        
+        return $this->render('view', compact('model', 'currency','currencyName'));
     }
 
 

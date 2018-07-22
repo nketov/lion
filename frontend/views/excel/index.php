@@ -48,8 +48,9 @@ use yii\widgets\Pjax;
             'quantity',
             ['attribute' => 'price',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
-                'value' => function ($data) {
-                    return $data->price . '  €';
+                'value' => function ($data) use ($currency, $currencySign) {
+//                    return $data->price . '  '.$currency;
+                    return round($data->price *$currency, 2). ' '.$currencySign;
                 },
                 'filter' => false],
             //'currency:ntext',
@@ -63,17 +64,7 @@ use yii\widgets\Pjax;
             ],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
-    <br>
-    <br>
-    <br>
-    <br>        
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <?php Pjax::end(); ?> 
 </div>
 
 

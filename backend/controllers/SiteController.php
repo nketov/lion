@@ -4,6 +4,7 @@ namespace backend\controllers;
 use app\models\UploadForm;
 use backend\components\excel_mysql\library\Excel_mysql;
 use common\models\Content;
+use common\models\Currency;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -30,7 +31,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'upload', 'content'],
+                        'actions' => ['logout', 'upload', 'content','currency'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -66,6 +67,21 @@ class SiteController extends Controller
                 'title' => 'Содержание сайта']);
         } else {
             return $this->render('content', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+
+    public function actionCurrency()
+    {
+        $model = Currency::findOne(1);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->render('success', ['message' => 'Данные успешно сохранены!',
+                'title' => 'Курсы валют']);
+        } else {
+            return $this->render('currency', [
                 'model' => $model,
             ]);
         }

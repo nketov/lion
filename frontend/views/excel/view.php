@@ -1,5 +1,6 @@
 <?php
 
+use common\models\ExcelSearch;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -10,6 +11,12 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Excels', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<section class="b-search">
+    <div class="container">
+
+        <?php echo $this->render('_search', ['searchModel' => new ExcelSearch()]); ?>
+    </div>
+</section><!--b-search-->
 <div class="container">
     <div class="col-lg-8">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -35,8 +42,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'cars:ntext',
             'fabricator:ntext',
             'quantity',
-            'price',
-            'currency:ntext',           
+            [
+                'attribute' => 'price',
+                'value'  => function ($data) use ($currency){
+                    return  round($data->price*$currency, 2) ;
+                }                
+            ],
+            [
+                'attribute' => 'currency',
+                'value'  => $currencyName                
+            ],         
             'store:ntext',
         ],
     ]) ?>
