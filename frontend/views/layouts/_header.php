@@ -77,7 +77,9 @@ $content = common\models\Content::findOne(1);
                             <li><a id="USD" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
                                         class="b-topBar__lang-flag m-es"></span></a></li>
                             <li><a id="UAH" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
-                                        class="b-topBar__lang-flag m-de"></span></a></li>
+                                        class="b-topBar__lang-flag m-de"></span></a></li>                           
+                            <li><a id="RUR" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-ru"></span></a></li>
                         </ul>
                     </div>
                 </div>

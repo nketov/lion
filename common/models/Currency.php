@@ -17,12 +17,14 @@ class Currency extends \yii\db\ActiveRecord
     'EUR' => '€',
     'USD' => '$',
     'UAH' => '₴',
+    'RUR' => '₽',
 ];
 
     public static $currencyName= [
         'EUR' => 'Евро',
         'USD' => 'Доллары',
         'UAH' => 'Гривны',
+        'RUR' => 'Рубли',
     ];
 
     /**
@@ -44,8 +46,8 @@ class Currency extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['uah', 'usd'], 'required'],
-            [['uah', 'usd'], 'double'],
+            [['uah', 'usd','rur'], 'required'],
+            [['uah', 'usd','rur'], 'double'],
         ];
     }
 
@@ -58,6 +60,7 @@ class Currency extends \yii\db\ActiveRecord
             'id' => 'ID',
             'usd' => 'Доллар к Евро:',
             'uah' => 'Гривна к Евро:',
+            'rur' => 'Рубль к Евро:',
         ];
     }
 }

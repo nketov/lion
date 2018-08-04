@@ -11,6 +11,8 @@ $this->title = 'Курсы валют';?>
 
 <?= $form->field($model, 'uah')->textInput(['style'=>'width:75px']) ?>
 
+<?= $form->field($model, 'rur')->textInput(['style'=>'width:75px']) ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
