@@ -148,3 +148,7 @@ thead{
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+#login-form label{
+    font-size: 32px;
+}

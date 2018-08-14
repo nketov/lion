@@ -43,6 +43,13 @@ return [
             'showScriptName' => false,
 
             'rules' => [
+                [
+                    'pattern' => '',
+                    'route' => '/',
+                    'suffix' => ''
+                ],           
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<action:(about|contact|login|cart|actions|cabinet|rezerv)>' => 'site/<action>'
             ],
         ],
         'formatter' => [

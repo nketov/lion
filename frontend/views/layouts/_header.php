@@ -1,4 +1,6 @@
 <?php
+use yii\bootstrap\Html;
+
 $content = common\models\Content::findOne(1);
 ?>
 <!-- Loader -->
@@ -59,7 +61,25 @@ $content = common\models\Content::findOne(1);
                 <nav class="b-topBar__nav">
                     <ul>
                         <li><a href="#">Корзина</a></li>
-                        <li><a href="#">Login</a></li>
+                        <li><a href="#"><?= Yii::$app->user->isGuest  ?  (
+                                    '<li>'
+                                    . Html::beginForm(['/login'], 'post', ['class' => 'navbar-form'])
+                                    . Html::submitButton(
+                                        'Вход  <i class="fa fa-user"></i>',
+                                        ['class' => 'user']
+                                    )
+                                    . Html::endForm()
+                                    . '</li>'
+                                ) : (
+                                    '<li>'
+                                    . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
+                                    . Html::submitButton(
+                                        'Выход  <i class="fa fa-user"></i>  (' . Yii::$app->user->identity->username . ')',
+                                        ['class' => 'user']
+                                    )
+                                    . Html::endForm()
+                                    . '</li>'
+                                ) ?></a></li>
                        
                     </ul>
                 </nav>
@@ -113,14 +133,14 @@ $content = common\models\Content::findOne(1);
                         <ul class="navbar-nav-menu">
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Акции</span></a>
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="/actions">Акции</span></a>
                             </li>
                             <li><a href="/compare.html">Масла</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle='dropdown' href="#">Прайсы</a>
 
                             </li>
-                            <li><a href="/submit1.html">Докуметы</a></li>
+                            <li><a href="/about">Докуметы</a></li>
                             <li><a href="/submit1.html">Запрос по VIN</a></li>
                             <li><a href="/contacts.html">Контакты</a></li>
                         </ul>

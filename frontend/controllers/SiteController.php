@@ -35,7 +35,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'cart','about','actions', 'cabinet', 'rezerv'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -227,6 +227,27 @@ class SiteController extends Controller
             Yii::$app->session->set('currency', $data['currency']);
         }
     }
+
+
+    public function actionCart(){
+        return $this->render('cart');
+    }
+
+    public function actionCabinet(){
+        return $this->render('cabinet');
+    }
+
+    public function actionActions(){
+    return $this->render('actions');
+}
+
+    public function actionRezerv(){
+        return $this->render('rezerv');
+    }
+
+     
+    
+    
 
 
 
