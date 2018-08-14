@@ -10,19 +10,22 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<section>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+
+
 
     <br>
     <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <section class="b-error s-shadow">
+    
+    
+    <section class="b-login">
         <div class="container">
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-4 col-md-4">
+        </div>
+        <div class="col-lg-4 col-md-4">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
@@ -41,7 +44,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
         </div>
+        <div class="col-lg-4 col-md-4">
+        </div>
     </div>
 </div>
 </div>
 </div>
+</section>

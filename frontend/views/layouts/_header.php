@@ -54,14 +54,14 @@ $content = common\models\Content::findOne(1);
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__tel">
                     <span class="fa fa-phone"></span>
-                    <a class = 'phones' href=""><?= $content->phone ?></a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><?= $content->phone ?></a>
                 </div>
             </div>
             <div class="col-md-3 col-xs-6">
                 <nav class="b-topBar__nav">
                     <ul>
-                        <li><a href="#">Корзина</a></li>
-                        <li><a href="#"><?= Yii::$app->user->isGuest  ?  (
+
+                        <?= Yii::$app->user->isGuest  ?  (
                                     '<li>'
                                     . Html::beginForm(['/login'], 'post', ['class' => 'navbar-form'])
                                     . Html::submitButton(
@@ -69,17 +69,17 @@ $content = common\models\Content::findOne(1);
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>'
+                                    . '</li>                        <li><a href="cart">Корзина</a></li>'
                                 ) : (
                                     '<li>'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                                     . Html::submitButton(
-                                        'Выход  <i class="fa fa-user"></i>  (' . Yii::$app->user->identity->username . ')',
+                                        '<i class="fa fa-sign-out" aria-hidden="true"></i>  (' . Yii::$app->user->identity->username . ')',
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>'
-                                ) ?></a></li>
+                                    . '</li>                        <li><a href="cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
+                                ) ?>
                        
                     </ul>
                 </nav>
@@ -132,8 +132,8 @@ $content = common\models\Content::findOne(1);
                     <div class="collapse navbar-collapse navbar-main-slide" id="nav">
                         <ul class="navbar-nav-menu">
 
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle='dropdown' href="/actions">Акции</span></a>
+                            <li>
+                                <a  href="/actions">Акции</a>
                             </li>
                             <li><a href="/compare.html">Масла</a></li>
                             <li class="dropdown">
@@ -142,7 +142,7 @@ $content = common\models\Content::findOne(1);
                             </li>
                             <li><a href="/about">Докуметы</a></li>
                             <li><a href="/submit1.html">Запрос по VIN</a></li>
-                            <li><a href="/contacts.html">Контакты</a></li>
+                            <li><a href="/contact">Контакты</a></li>
                         </ul>
                     </div>
                 </div>
