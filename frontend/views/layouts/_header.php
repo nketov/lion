@@ -74,7 +74,7 @@ $content = common\models\Content::findOne(1);
                                     '<li>'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                                     . Html::submitButton(
-                                        '<i class="fa fa-sign-out" aria-hidden="true"></i>  (' . Yii::$app->user->identity->username . ')',
+                                        '<i class="fa fa-sign-out" aria-hidden="true"></i>  (' . Yii::$app->user->identity->email . ')',
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
