@@ -1,4 +1,5 @@
-<?php use yii\helpers\Url;
+<?php 
+use yii\helpers\Url;
 use yii\widgets\ActiveForm; ?>
 
 <section class="b-search">
@@ -6,9 +7,9 @@ use yii\widgets\ActiveForm; ?>
     <?php  echo $this->render(Url::toRoute(['excel/_search']), ['searchModel' => $searchModel]); ?>
     </div>
 </section><!--b-search-->
-    
 
-<section class="b-slider">
+
+<section class="b-slider">    
     <div id="carousel" class="slide carousel carousel-fade">
         <div class="carousel-inner">
             <div class="item active">

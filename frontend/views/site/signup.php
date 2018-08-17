@@ -16,7 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="site-login">
 
         <br>
+        <br>
+        <br>
         <br><br><br><br><br><br><br>
+        <br><br><br><br><br>
 
 
     <section class="b-login">
@@ -25,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-lg-4 col-md-4">
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <h1><?= Html::encode($this->title) ?></h1>
+<!--                    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
 
                     <p>Пожалуйста заполните следующие поля для регистрации:</p>
                     
@@ -48,3 +51,4 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 </div>
 </section>
+<br><br><br><br><br><br>

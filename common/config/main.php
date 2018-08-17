@@ -13,6 +13,17 @@ return [
 			'password' => 'fqsbp2m3',
 			'charset' => 'utf8',
 		],
+		'mailer' => [
+			'class' => 'yii\swiftmailer\Mailer',			
+			'transport' => [
+				'class' => 'Swift_SmtpTransport',
+				'host' => 'mail.adm.tools',
+				'username' => 'mail@lion-auto.com.ua',
+				'password' => 'lion2018',
+				'port' => '25',
+				'encryption' => 'ssl',
+			],
+		],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

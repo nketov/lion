@@ -150,5 +150,11 @@ thead{
 }
 
 #login-form label{
-    font-size: 32px;
+    font-size: 26px;
 }
+
+.alert{
+    z-index: 1001 !important;
+}
+
+

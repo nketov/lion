@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <br>
     <br><br><br><br><br><br><br>
+    <br><br><br><br><br>
 
     <section class="b-login">
         <div class="container">
@@ -34,6 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     Если Вы забыли пароль, можете его <?= Html::a('восстановить', ['site/request-password-reset']) ?>.
                 </div>
 
+            <div style="color:#999;margin:1em 0">
+                Если Вы новый пользователь, то можете  <?= Html::a('зарегистрироваться', ['signup']) ?>.
+            </div>
+
                 <div class="form-group">
                     <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
@@ -45,5 +50,14 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 </div>
+    </section>
 </div>
 </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
