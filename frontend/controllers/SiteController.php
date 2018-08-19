@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Actions;
+use common\models\Currency;
 use common\models\ExcelSearch;
 use Yii;
 use yii\base\InvalidParamException;
@@ -235,16 +237,28 @@ class SiteController extends Controller
     }
 
     public function actionCabinet(){
-        return $this->render('cabinet');
+        $actions=Actions::findAll(['email'=>Yii::$app->user->identity->email]);
+
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencySign=Currency::$currencySign[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+        return $this->render('cabinet',compact('actions','currency','currencySign'));
     }
 
     public function actionActions(){
-    return $this->render('actions');
+
+        $actions=Actions::findAll(['email'=>Yii::$app->user->identity->email]);
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencySign=Currency::$currencySign[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+        
+    return $this->render('actions',compact('actions','currency','currencySign'));
 }
 
     public function actionRezerv(){
         return $this->render('rezerv');
     }
+
 
      
     

@@ -37,6 +37,7 @@
                     ['label' => 'Содержание сайта', 'icon' => 'tv', 'url' => ['/content'],],
                     ['label' => 'Курсы валют', 'icon' => 'money', 'url' => ['/currency'],],
                     ['label' => 'Загрузка данных', 'icon' => 'upload', 'url' => ['/upload'],],
+                    ['label' => 'Акции', 'icon' => 'gift', 'url' => ['/actions'],],
 //                    [
 //                        'label' => 'Some tools',
 //                        'icon' => 'share',

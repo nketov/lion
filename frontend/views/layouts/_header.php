@@ -1,4 +1,5 @@
 <?php
+use common\models\Currency;
 use yii\bootstrap\Html;
 
 $content = common\models\Content::findOne(1);
@@ -84,11 +85,23 @@ $content = common\models\Content::findOne(1);
                     </ul>
                 </nav>
             </div>
+            <?php
+            $euro= round(Currency::getCurrency('UAH'),3);
+            $dollar= round(Currency::getCurrency('UAH')/Currency::getCurrency('USD'),3);
+            $rur= round(Currency::getCurrency('UAH')/Currency::getCurrency('RUR'),3);
+
+            ?>
             <div class="col-md-2 col-xs-6">
                 <div class="b-topBar__lang">
                     <div class="dropdown">
                         <input id="currency"  value="<?=  !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ?>" hidden>
-                        <a href="#" class="dropdown-toggle" data-toggle='dropdown'>Валюта</a>
+                        <a data-toggle="tooltip" title="&nbsp;&nbsp;&nbsp;Евро : <?=$euro ?>&#10;Доллар : <?=$dollar ?>&#10;Рубль : <?=$rur ?>" href="#" class="dropdown-toggle" data-toggle='dropdown'>Валюта</a>
+
+                        <script>
+                            $(document).ready(function(){
+                                $('[data-toggle="tooltip"]').tooltip();
+                            });
+                        </script>
                         <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span id="currency-flag"
                                 class="b-topBar__lang-flag m-en"></span><span class="fa fa-caret-down"></span></a>
                         <ul class="dropdown-menu h-lang">

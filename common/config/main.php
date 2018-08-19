@@ -8,9 +8,9 @@ return [
     'components' => [
 		'db' => [
 			'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=lionau00.mysql.tools;dbname=lionau00_lion',
-			'username' => 'lionau00_lion',
-			'password' => 'fqsbp2m3',
+			'dsn' => 'mysql:host=localhost;dbname=lion',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		],
 		'mailer' => [
