@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\StringHelper;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 ?>
@@ -59,8 +60,17 @@ use yii\widgets\Pjax;
 
                 'filter' => \common\models\Excel::getAttrList('store')],
 
-            ['class' => 'yii\grid\ActionColumn',
-                'template' => '{view}'
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {cart}',
+                'buttons' => [
+                    'cart' => function($model, $key, $index) {
+                        return Html::a(
+                            '<span class="add-cart fa fa-cart-arrow-down" data-id='.$index.'>',
+                            Url::to(['excel/add-cart'])
+                        );
+                    }
+                ]
             ],
         ],
     ]); ?>

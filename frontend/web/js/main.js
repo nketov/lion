@@ -22,6 +22,28 @@ $(document).ready(function () {
         // location.href = 'google.com';
     });
 
+    $('.add-cart').on('click', function (e) {
+        e.preventDefault();
+        var id=$(this).data('id');
+        $.ajax({
+            url : '/excel/add-cart',
+            data: {id:id},
+            type: 'GET',
+            success: function (res) {
+                console.log(res);
+            },
+            error :function () {
+                alert('Error!')
+            }
+
+        }
+
+
+        )
+
+    })
+
+
 
 
 });

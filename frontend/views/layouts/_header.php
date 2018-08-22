@@ -70,7 +70,7 @@ $content = common\models\Content::findOne(1);
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>                        <li><a href="cart">Корзина</a></li>'
+                                    . '</li>                        <li><a href="/cart">Корзина</a></li>'
                                 ) : (
                                     '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
@@ -79,7 +79,7 @@ $content = common\models\Content::findOne(1);
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
+                                    . '</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
                                 ) ?>
                        
                     </ul>

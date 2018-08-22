@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Cart;
 use common\models\Currency;
 use Yii;
 use common\models\Excel;
@@ -52,13 +53,28 @@ class ExcelController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
+{
+    $model=$this->findModel($id);
+    $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+    $currencyName=Currency::$currencyName[$currency];
+    $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+
+    return $this->render('view', compact('model', 'currency','currencyName'));
+}
+
+    public function actionAddCart()
     {
-        $model=$this->findModel($id);
-        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
-        $currencyName=Currency::$currencyName[$currency];
-        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
-        
-        return $this->render('view', compact('model', 'currency','currencyName'));
+        $id=Yii::$app->request->get('id');
+        $product= Excel::findOne($id);
+        if (empty($product)) return false;
+        $session=Yii::$app->session;
+        $session->open();
+        $cart= new Cart;
+        $cart->addCart($product);
+
+        return  $_SESSION['cart.sum'];
+
+
     }
 
 
