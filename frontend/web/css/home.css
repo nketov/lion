@@ -40,6 +40,15 @@ position: relative;
 
 .phones{
     color: grey !important;
+    padding-left: -40px;
+    padding-right: -40px;
+    margin-left: -20px;
+    margin-right: -40px;
+    font:600 12px 'Open Sans',sans-serif;
+        display: inline-block;
+    
+    
+    
 }
 
 .cabinet{
@@ -57,7 +66,7 @@ position: relative;
     
 }
 
-.b-topBar__addr,.b-topBar__tel{
+.b-topBar__addr{
     padding: 20px 0 0px 0;
     font:600 12px 'Open Sans',sans-serif;
     text-transform: uppercase;
@@ -66,9 +75,25 @@ position: relative;
 
 }
 
+.b-topBar__tel{
+    padding-left: -40px;
+    padding-right: -40px;
+    padding-top: 20px;
+    margin-left: -20px;
+    margin-right: -40px;
+    display: inline-block;
+    font:600 12px 'Open Sans',sans-serif;
+    text-transform: uppercase;
+    float: left;
+    width:125px;
+}
+
+
+
+
 .b-topBar__addr{
-    padding-left: 15px;
-    padding-right: 15px;    
+    padding-left: 5px;
+    padding-right: 5px;    
     border-right:1px solid #eeeeee;
     border-left:1px solid #eeeeee;
     margin-right: 10px;
@@ -76,7 +101,10 @@ position: relative;
 
 .b-topBar__addr span.fa,.b-topBar__tel span.fa{
     font-size:17px;
-    margin-right: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
     vertical-align: middle;
 }
 
@@ -84,12 +112,21 @@ position: relative;
 .b-topBar__nav{
     overflow: hidden;
     border-right:1px solid #eeeeee ;
+    padding-right:0 px;
+    padding-left:0 px;    
+    display: inline-block;
+    min-width:300px;
 }
 
 .b-topBar__nav li{
     float:right;
+    padding-right:0 px;
+    padding-left:0 px;    
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;    
     list-style: none;
-    padding: 20px 0;
+    padding-top: 20px;
     font:300 12px 'Open Sans',sans-serif;
     text-transform: uppercase;
 }

@@ -16,7 +16,7 @@ if (!Yii::$app->user->isGuest) { ?>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Персональные предложения</h3>
                         <p class="wow zoomInUp" data-wow-delay="0.7s">У вас нет персонального предложеения</p>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Ваш номер телефона</h3>
-                        <p class="wow zoomInUp" data-wow-delay="0.7s">+380997729267 <a href="" title="Изменить"><i
+                        <p class="wow zoomInUp" data-wow-delay="0.7s">+380(__) ___-__-__ <a href="" title="Изменить"><i
                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Оставить комментарий</h3>
                         <p class="wow zoomInUp" data-wow-delay="0.7s"><a href="" title="Оставить отзыв на fb"><i
@@ -28,7 +28,7 @@ if (!Yii::$app->user->isGuest) { ?>
                     <div id="history" class="col-md-1">
                     </div>
                     <div style="text-align:left" class="col-md-7">
-                        <h3 style="text-align:left" class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">
+                        <h3 style="text-align:left; font-size:14px; padding-top:12px;" class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">
                             Специальные предложения</h3>
 
                         <div class=row>
@@ -37,11 +37,11 @@ if (!Yii::$app->user->isGuest) { ?>
                             <div class="col-lg-10 col-md-10">
                                 <table>
                                     <tr>
-                                        <th>Товар</th>
-                                        <th>Код</th>
-                                        <th>Цена</th>
-                                        <th>Скидка</th>
-                                        <th>Цена со скидкой</th>
+                                        <th style="padding:10px">Товар</th>
+                                        <th style="padding:10px">Код</th>
+                                        <th style="padding:10px">Цена</th>
+                                        <th style="padding:10px">Скидка</th>
+                                        <th style="padding:10px">Цена со скидкой</th>
                                     </tr>
                         <?php foreach ($actions as $action) {
                                  $product= Excel::findOne(['code' => $action->code]);

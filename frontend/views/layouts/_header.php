@@ -52,13 +52,13 @@ $content = common\models\Content::findOne(1);
                     <?= $content->address ?>
                 </div>
             </div>
-            <div class="col-md-2 col-xs-6">
+            <div class="col-md-1 col-xs-6">
                 <div class="b-topBar__tel">
-                    <span class="fa fa-phone"></span>
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><?= $content->phone ?></a>
+
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $content->phone ?></a>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-4 col-xs-6">
                 <nav class="b-topBar__nav">
                     <ul>
 
@@ -72,14 +72,14 @@ $content = common\models\Content::findOne(1);
                                     . Html::endForm()
                                     . '</li>                        <li><a href="cart">Корзина</a></li>'
                                 ) : (
-                                    '<li>'
+                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
                                     . Html::submitButton(
                                         '<i class="fa fa-sign-out" aria-hidden="true"></i>  (' . Yii::$app->user->identity->email . ')',
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>                        <li><a href="cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
+                                    . '</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
                                 ) ?>
                        
                     </ul>
