@@ -288,14 +288,17 @@ var update = function update(e) {
 window.addEventListener('scroll', update);
 </script>
 <br><br><br><br><br><br><br><br><br><br><br><br>
-  <h1>Всего позиций: 0 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Общая сумма: 0 грн.,<br><a href="">Заказать</a></h1>
-<p><strong><em>от 14 августа, 2018</em> заказчик:</strong></p>
+  <h1>Всего позиций: <?=$cart->getQuantity() ?>
+    <br>Общая сумма: <?=round($cart->summ *$currency, 2). ' '.$currencySign ?>
+    <br><a href="">Заказать</a>&nbsp;&nbsp;
+    <a href="/excel/reset-cart">Очистить</a></h1>
+<p><strong><em>от <?= date("d F Y"); ?></em> заказчик:</strong></p>
 <h2>Крутите вниз чтобы просмотреть полностью</h2>
 
 <p><br><br><br><br><br><img class="cart" src="/images/backgrounds/cart.png" alt="cherry blossoms"></p>
 <?php
 
-$rows = 50; // количество строк, tr
+$rows = $cart->getQuantity() ; // количество строк, tr
 $cols = 8; // количество столбцов, td
 
 echo '<p>';

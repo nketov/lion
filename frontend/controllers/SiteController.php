@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Actions;
+use common\models\Cart;
 use common\models\Currency;
 use common\models\ExcelSearch;
 use Yii;
@@ -233,7 +234,13 @@ class SiteController extends Controller
 
 
     public function actionCart(){
-        return $this->render('cart');
+
+        $cart= new Cart();
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencySign=Currency::$currencySign[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+
+        return $this->render('cart', compact('cart','currency','currencySign'));
     }
 
     public function actionCabinet(){

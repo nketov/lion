@@ -7,6 +7,7 @@ use common\models\Currency;
 use Yii;
 use common\models\Excel;
 use common\models\ExcelSearch;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,17 +66,25 @@ class ExcelController extends Controller
     public function actionAddCart()
     {
         $id=Yii::$app->request->get('id');
+        $qty=Yii::$app->request->get('qty');
         $product= Excel::findOne($id);
         if (empty($product)) return false;
         $session=Yii::$app->session;
         $session->open();
         $cart= new Cart;
-        $cart->addCart($product);
-
+        $cart->addCart($product,$qty);
+        
         return  $_SESSION['cart.sum'];
-
-
     }
+
+    public function actionResetCart()
+    {
+        $cart= new Cart;
+        $cart->resetCart();
+        $this->redirect(Url::to(['/cart']));
+    }
+
+
 
 
     /**

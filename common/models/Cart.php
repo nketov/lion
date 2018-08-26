@@ -19,6 +19,20 @@ class Cart extends Model{
 
        }
 
+    public function resetCart(){
+        $_SESSION['cart'] = [];
+        $_SESSION['cart.qty'] = 0;
+        $_SESSION['cart.sum']=0;
+    }
+
+    public function getSumm(){
+        return isset($_SESSION['cart.sum'])? $_SESSION['cart.sum'] :0;
+    }
+
+    public function getQuantity(){
+        return isset($_SESSION['cart']) ? sizeof($_SESSION['cart']):0;
+    }
+
 
 }
 
