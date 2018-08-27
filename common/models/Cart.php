@@ -25,12 +25,24 @@ class Cart extends Model{
         $_SESSION['cart.sum']=0;
     }
 
+    public function deleteCart($id){
+        if($product = Excel::findOne($id)){
+            $_SESSION['cart.qty'] -=$_SESSION['cart'][$id]['qty'];
+            $_SESSION['cart.sum']  -= $_SESSION['cart'][$id]['qty'] *$product->price;
+            unset($_SESSION['cart'][$id]);
+        }
+    }
+
     public function getSumm(){
         return isset($_SESSION['cart.sum'])? $_SESSION['cart.sum'] :0;
     }
 
     public function getQuantity(){
         return isset($_SESSION['cart']) ? sizeof($_SESSION['cart']):0;
+    }
+
+    public function getProducts(){
+        return isset($_SESSION['cart']) ? $_SESSION['cart']:[];
     }
 
 

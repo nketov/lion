@@ -1,5 +1,5 @@
 $(document).ready(function ($) {
-    
+
     var currency = $('#currency').attr('value');
     var flag = $('#' + currency).find('span').attr('class');
     $('#currency-flag').attr('class', flag);
@@ -55,6 +55,18 @@ $(document).ready(function ($) {
                 }
             }
         )
+    })
+
+    $('.cart-view').on('click', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        window.location.href = "/excel/view?id="+id;
+    })
+
+    $('.cart-delete').on('click', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        window.location.href = "/excel/delete-cart?id="+id;
     })
 
 });

@@ -84,6 +84,12 @@ class ExcelController extends Controller
         $this->redirect(Url::to(['/cart']));
     }
 
+    public function actionDeleteCart($id)
+    {
+        $cart= new Cart;
+        $cart->deleteCart($id);
+        $this->redirect(Url::to(['/cart']));
+    }
 
 
 
