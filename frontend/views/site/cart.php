@@ -332,7 +332,7 @@
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <h1>Всего позиций: <?= $cart->getQuantity() ?>
     <br>Общая сумма: <?= round($cart->summ * $currency, 2) . ' ' . $currencySign ?>
-    <br><a href="">Заказать</a>&nbsp;&nbsp;
+    <br><a href="/excel/order">Заказать</a>&nbsp;&nbsp;
     <a href="/excel/reset-cart">Очистить</a></h1>
 <p><strong><em>от <?= date("d.m.Y"); ?></em> <?= Yii::$app->user->isGuest ?  yii\helpers\Html::a('войдите ', ['/login']).' чтобы заказать' : 'Заказчик:'.Yii::$app->user->identity->email  ?></strong></p>
 <h2>Крутите вниз чтобы просмотреть полностью</h2>

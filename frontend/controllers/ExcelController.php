@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Cart;
 use common\models\Currency;
+use common\models\Order;
 use Yii;
 use common\models\Excel;
 use common\models\ExcelSearch;
@@ -89,6 +90,41 @@ class ExcelController extends Controller
         $cart= new Cart;
         $cart->deleteCart($id);
         $this->redirect(Url::to(['/cart']));
+    }
+
+    public function actionOrder()
+    {
+        if (Yii::$app->user->isGuest) {
+            Yii::$app->session->setFlash('success', 'Залогиньтесь для оформления заказа');
+            return $this->redirect(Url::to(['/login']));
+        }
+
+        $cart=new Cart();
+        if(!$summ=$cart->getSumm()){
+            Yii::$app->session->setFlash('success', 'Корзина пуста, добавьте товары');
+            return $this->redirect(Url::to(['/cart']));
+         }
+
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
+        $currencySign=Currency::$currencySign[$currency];
+        $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
+
+        $order=new Order();
+        $order->user_id= Yii::$app->user->id;        
+        $order->summ= $summ;
+        $products = $cart->getProducts();
+        $order_content = '';
+        $count=1;
+        foreach ($products as $id=>$array) {
+            $product = self::findModel($id);            
+            $order_content .= '<p>'.$count.'. '.$product->name. ' ('.$product->code.') '. $array['qty']. ' шт.  - '. round($product->price * $currency * $array['qty'], 2) . ' ' . $currencySign . ' </p>';
+            $count++;
+        }
+        $order_content .= '<p><b> Всего: '.round($summ * $currency, 2) . ' ' . $currencySign .'</b>';
+        $order->order_content = $order_content;
+        $order->save();
+        mail('ketovnv@gmail.com', 'Заказ', $order_content,"Content-type:text/html;charset=UTF-8");
+        
     }
 
 
