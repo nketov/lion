@@ -1928,3 +1928,42 @@ a.m-langLink{
 .b-footer__content-nav ul li a{
     font: 400 12px 'Open Sans',sans-serif;
 }
+
+@media (max-width: 1215px) { /* это будет показано при разрешении монитора до 930 пикселей */
+  .content-wrapper {padding: 0;} /* основное содержимое занимает всё пространство окна */
+  .b-nav__logo h3{
+    margin:0;
+    font-size:16px;
+    line-height:50px
+}
+
+.b-nav__logo h3 a{
+    text-decoration: none;
+    font:700 16px 'Titillium Web', sans-serif;
+}
+.phones{
+    color: grey !important;
+    padding-left: -20px;
+    padding-right: -40px;
+    margin-left: 0px;
+    margin-right: -40px;
+    font:600 12px 'Open Sans',sans-serif;
+        display: inline-block;
+    
+    
+    
+}
+.b-topBar__addr{
+    padding: 5px 0 0px 0;
+    font:600 12px 'Open Sans',sans-serif;
+    text-transform: uppercase;
+    float: left;
+    
+
+}
+.b-search{
+    height:300px;
+    padding-top: 250px;
+}
+
+}
