@@ -43,12 +43,17 @@ class Order extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'date' => 'Date',
-            'user_id' => 'User ID',
-            'order_content' => 'Order Content',
-            'summ' => 'Summ',
+            'id' => 'Номер заказа',
+            'date' => 'Дата заказа',
+            'user_id' => 'Пользователь',
+            'order_content' => 'Содержание заказа',
+            'summ' => 'Сумма, евро',
         ];
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
 }
