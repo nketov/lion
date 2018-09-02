@@ -1,26 +1,12 @@
-
 <?php
 use common\models\Currency;
 use yii\bootstrap\Html;
 
 $content = common\models\Content::findOne(1);
 ?>
-
-<?php require_once "Mobile_Detect.php";
-$detect = new Mobile_Detect;
- 
-
-// Any mobile device (phones or tablets).
-if ( $detect->isMobile() ) {
- echo "<html title=\"Lion-auto mobile\"><body>Mobile version</body></html>";
-} else  echo "<html title=\"Lion-auto mobile\"><body>Computer version</body></html>";
-?>
- 
 <!-- Loader -->
 <div id="page-preloader"><span class="spinner"></span></div>
 <!-- Loader end -->
-
-
 <!-- Start Switcher -->
 <div class="switcher-wrapper">
     <div class="demo_changer">
@@ -137,7 +123,7 @@ if ( $detect->isMobile() ) {
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
                     <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
                     <p>
-                        Автозапчасти
+                        
                     </p>
                 </div>
             </div>
