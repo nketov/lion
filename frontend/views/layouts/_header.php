@@ -14,8 +14,153 @@ $detect = new Mobile_Detect;
 if ( $detect->isMobile() ) {
  echo "<html title=\"Lion-auto mobile\"><body>Mobile version</body></html>";
 } else  echo "<html title=\"Lion-auto mobile\"><body>Computer version</body></html>";
+
+if( $detect->isMobile() ){
 ?>
- 
+    <html>
+<!-- Loader -->
+<div id="page-preloader"><span class="spinner"></span></div>
+<!-- Loader end -->
+
+
+
+<header class="b-topBarMobile wow slideInDown" data-wow-delay="0.7s">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div style=transform:translateY(0px) class="b-topBar__logo wow slideInLeft" data-wow-delay="0.3s">
+                    <a href="/"><img src="/images/logo/logo.png"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-md-12 col-xs-12">
+                <div class="b-topBar__addrMobile">
+                    <span class="fa fa-map-marker"></span>
+                    <?= $content->address ?>
+                </div>
+            </div>
+         </div>   
+         <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="b-topBar__telMobile">
+
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $content->phone ?></a>
+                </div>
+            </div>
+         </div>   
+             <?php
+            $euro= round(Currency::getCurrency('UAH'),3);
+            $dollar= round(Currency::getCurrency('UAH')/Currency::getCurrency('USD'),3);
+            $rur= round(Currency::getCurrency('UAH')/Currency::getCurrency('RUR'),3);
+
+            ?>
+         <div class="row">            
+            <div class="col-md-12 col-xs-12">
+                <div class="b-topBar__langMobile">
+                    <div class="dropdown">
+                        <input id="currency"  value="<?=  !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ?>" hidden>
+                        <a data-toggle="tooltip" title="&nbsp;&nbsp;&nbsp;Евро : <?=$euro ?>&#10;Доллар : <?=$dollar ?>&#10;Рубль : <?=$rur ?>" href="#" class="dropdown-toggle" data-toggle='dropdown'>Валюта</a>
+
+                        <a class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span id="currency-flag"
+                                class="b-topBar__lang-flag m-en"></span><span class="fa fa-caret-down"></span></a>
+                        <ul class="dropdown-menu h-lang">
+                            <li><a id="EUR" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-en"></span></a></li>
+                            <li><a id="USD" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-es"></span></a></li>
+                            <li><a id="UAH" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-de"></span></a></li>
+                            <li><a id="RUR" class="m-langLink dropdown-toggle" data-toggle='dropdown' href="#"><span
+                                        class="b-topBar__lang-flag m-ru"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <nav class="b-topBar__navMobile">
+                    <ul>
+
+                        <?= Yii::$app->user->isGuest  ?  (
+                                    '<li>'
+                                    . Html::beginForm(['/login'], 'post', ['class' => 'navbar-form'])
+                                    . Html::submitButton(
+                                        'Вход  <i class="fa fa-user"></i>',
+                                        ['class' => 'user']
+                                    )
+                                    . Html::endForm()
+                                    . '</li>                        <li><a href="/cart">Корзина</a></li>'
+                                ) : (
+                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">'
+                                    . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
+                                    . Html::submitButton(
+                                        '<i class="fa fa-sign-out" aria-hidden="true"></i>  (' . Yii::$app->user->identity->email . ')',
+                                        ['class' => 'user']
+                                    )
+                                    . Html::endForm()
+                                    . '</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a></li><li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a></li>'
+                                ) ?>
+                                    
+                    </ul>
+                </nav>
+            </div>
+         </div>
+        
+    </div>
+</header><!--b-topBar-->
+
+<nav class="b-navMobile">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-9 col-xs-12">
+                <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-main-slide" id="nav">
+                        <ul class="navbar-nav-menu">
+
+                            <li>
+                                <a  href="/actions">Акции</a>
+                            </li>
+                            <li><a href="/compare.html">Масла</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle='dropdown' href="#">Прайсы</a>
+
+                            </li>
+                            <li><a href="/about">Докуметы</a></li>
+                            <li><a href="/submit1.html">Запрос по VIN</a></li>
+                            <li><a href="/contact">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="b-nav__logoMobile wow slideInLeft" data-wow-delay="0.3s">
+                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
+                    <p>
+                        Автозапчасти
+                    </p>
+                </div>
+            </div>
+        </div>    
+    </div>
+</nav><!--b-nav-->
+</html>
+<?php
+} else{
+?>
+    <html>
 <!-- Loader -->
 <div id="page-preloader"><span class="spinner"></span></div>
 <!-- Loader end -->
@@ -172,3 +317,11 @@ if ( $detect->isMobile() ) {
         </div>
     </div>
 </nav><!--b-nav-->
+</html>
+<?php
+}
+
+?>
+
+
+ 
