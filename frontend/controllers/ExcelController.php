@@ -120,10 +120,20 @@ class ExcelController extends Controller
             $order_content .= '<p>'.$count.'. '.$product->name. ' ('.$product->code.') '. $array['qty']. ' шт.  - '. round($product->price * $currency * $array['qty'], 2) . ' ' . $currencySign . ' </p>';
             $count++;
         }
-        $order_content .= '<p><b> Всего: '.round($summ * $currency, 2) . ' ' . $currencySign .'</b>';
+        $order_content .= '<p><b> Всего: '.round($summ * $currency, 2) . ' ' . $currencySign .'</b></p>';
         $order->order_content = $order_content;
         $order->save();
-        mail('ketovnv@gmail.com', 'Заказ', $order_content,"Content-type:text/html;charset=UTF-8");
+
+        $user_text= '<p>Вы сделали заказ на сайте <b>lion-auto.com.ua</b>. Содержание заказа : </p>'.$order_content;
+        mail(Yii::$app->user->identity->email, 'Заказ № '. $order->id, $user_text,"Content-type:text/html;charset=UTF-8");
+
+        $shop_text= '<p>Пользователь  <b>'.Yii::$app->user->identity->email.'</b> сделал заказ. Содержание заказа : </p>'.$order_content;
+        mail('ketovnv@gmail.com', 'Заказ № '. $order->id , $shop_text ,"Content-type:text/html;charset=UTF-8");
+        mail('lionauto.in.ua@gmail.com', 'Заказ № '. $order->id , $shop_text ,"Content-type:text/html;charset=UTF-8");
+
+        $cart->resetCart();
+        Yii::$app->session->setFlash('success', 'Ваш заказ отправлен!');
+        $this->redirect(Url::to(['/cart']));
         
     }
 
