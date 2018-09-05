@@ -147,10 +147,17 @@ if( $detect->isMobile() ){
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="b-nav__logoMobile wow slideInLeft" data-wow-delay="0.3s">
-                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
+                
+                <?= Yii::$app->user->isGuest  ?  (
+                                    '                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
                     <p>
                         Автозапчасти
                     </p>
+'
+                                ) : (
+                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность:</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/"><i class="fa fa-history" style="font-size:36px;color:red"></i>Просроченная задолженность:</a></li>'
+                                ) ?>
+                                
                 </div>
             </div>
         </div>    
@@ -278,15 +285,22 @@ if( $detect->isMobile() ){
 <nav class="b-nav">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-4 col-xs-6">
                 <div class="b-nav__logo wow slideInLeft" data-wow-delay="0.3s">
-                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
+                
+                <?= Yii::$app->user->isGuest  ?  (
+                                    '                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
                     <p>
                         Автозапчасти
                     </p>
+'
+                                ) : (
+                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность:</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/">Просроченная задолженность <i class="fa fa-history" style="font-size:24px;color:red"></i>:</a></li>'
+                                ) ?>
+                                
                 </div>
             </div>
-            <div class="col-sm-9 col-xs-8">
+            <div class="col-sm-8 col-xs-8">
                 <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
