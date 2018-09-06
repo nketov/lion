@@ -233,8 +233,7 @@ class SiteController extends Controller
     }
 
 
-    public function actionCart(){
-
+    public function actionCart(){      
         $cart= new Cart();
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
         $currencySign=Currency::$currencySign[$currency];
@@ -244,8 +243,7 @@ class SiteController extends Controller
     }
 
     public function actionCabinet(){
-        $actions=Actions::findAll(['email'=>Yii::$app->user->identity->email]);
-
+        $actions= Actions::getDiscounts();
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
         $currencySign=Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
@@ -254,11 +252,11 @@ class SiteController extends Controller
 
     public function actionActions(){
 
-        $actions=Actions::findAll(['email'=>Yii::$app->user->identity->email]);
+        $actions= Actions::getDiscounts();
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
         $currencySign=Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
-        
+
     return $this->render('actions',compact('actions','currency','currencySign'));
 }
 

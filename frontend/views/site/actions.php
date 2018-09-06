@@ -36,24 +36,28 @@ $this->params['breadcrumbs'][] = $this->title;
 									<th>Скидка</th>
 									<th>Цена со скидкой</th>
 								</tr>
-								<?php foreach ($actions as $action) {
-									$product= Excel::findOne(['code' => $action->code]);
+								
+								<?php
+								foreach ($actions as $key=>$action) {
+
+									$product= Excel::findOne(['code' => $key]);
 									if(!empty($product)) {
-										$price=round($product->price *$currency, 2);
-										$price2 = round($price *(100-$action->discount)/100, 2);
+										$price = round($product->price * $currency, 2);
+										$price2 = round($product->getDiscountPrice() * $currency, 2);
 										?>
 										<tr>
 											<td style="padding:10px"><?= $product->name ?></td>
-											<td style="padding:10px"><?= $action->code ?></td>
-											<td style="padding:10px"><?= $price. ' '.$currencySign   ?></td>
-											<td style="padding:10px"><?= $action->discount . '  %' ?></td>
-											<td style="padding:10px"><?= $price2. ' '.$currencySign ?></td>
+											<td style="padding:10px"><?= $key ?></td>
+											<td style="padding:10px"><?= $price . ' ' . $currencySign ?></td>
+											<td style="padding:10px"><?= $action . '  %' ?></td>
+											<td style="padding:10px"><?= $price2 . ' ' . $currencySign ?></td>
 										</tr>
 
 										<?php
 									}
 								} ?>
 							</table>
+							<?php if(array_key_exists('*',$actions)) echo '<p>Скидка на все остальные товары: '.$actions['*'].' %</p>' ?>
 						</div>
 						<div class="col-lg-1 col-md-1">
 						</div>

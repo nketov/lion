@@ -1,5 +1,6 @@
 
 <?php
+use common\models\Actions;
 use common\models\Currency;
 use yii\bootstrap\Html;
 
@@ -53,7 +54,6 @@ if( $detect->isMobile() ){
             $euro= round(Currency::getCurrency('UAH'),3);
             $dollar= round(Currency::getCurrency('UAH')/Currency::getCurrency('USD'),3);
             $rur= round(Currency::getCurrency('UAH')/Currency::getCurrency('RUR'),3);
-
             ?>
          <div class="row">            
             <div class="col-md-12 col-xs-12">

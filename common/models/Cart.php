@@ -7,6 +7,7 @@ class Cart extends Model{
 
     public function addCart($product, $qty=1){
 
+       
         if(isset($_SESSION['cart'][$product->id])){
             $_SESSION['cart'][$product->id]['qty'] += $qty;
         } else{
@@ -15,7 +16,7 @@ class Cart extends Model{
         }
         
         $_SESSION['cart.qty'] = isset($_SESSION['cart.qty'] )? $_SESSION['cart.qty'] + $qty : $qty;
-        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum'] )? $_SESSION['cart.sum'] + $qty *$product->price : $qty *$product->price;
+        $_SESSION['cart.sum'] = isset($_SESSION['cart.sum'] )? $_SESSION['cart.sum'] + $qty *$product->getDiscountPrice() : $qty *$product->getDiscountPrice();
 
        }
 
@@ -28,7 +29,7 @@ class Cart extends Model{
     public function deleteCart($id){
         if($product = Excel::findOne($id)){
             $_SESSION['cart.qty'] -=$_SESSION['cart'][$id]['qty'];
-            $_SESSION['cart.sum']  -= $_SESSION['cart'][$id]['qty'] *$product->price;
+            $_SESSION['cart.sum']  -= $_SESSION['cart'][$id]['qty'] *$product->getDiscountPrice();
             unset($_SESSION['cart'][$id]);
         }
     }

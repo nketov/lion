@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'price',
                 'value'  => function ($data) use ($currency){
-                    return  round($data->price*$currency, 2) ;
+                    return  round($data->getDiscountPrice*$currency, 2) ;
                 }                
             ],
             [

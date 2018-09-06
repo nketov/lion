@@ -41,10 +41,26 @@ class Actions extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'email' => 'Email',
-            'code' => 'Code',
-            'discount' => 'Discount',
+            'id' => 'Номер акции',
+            'email' => 'E-mail',
+            'code' => 'Код товара',
+            'discount' => 'Скидка',
         ];
     }
+
+    public static function getDiscounts()
+    {
+        $discounts=[];
+
+        if (Yii::$app->user->isGuest) return $discounts;
+        
+        $actions=Actions::findAll(['email'=>Yii::$app->user->identity->email]);
+
+        foreach ($actions as $action){
+            $discounts[trim($action->code)]=$action->discount;
+        }
+
+        return $discounts;
+    }
+
 }

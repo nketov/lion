@@ -354,7 +354,7 @@ foreach ($cart->getProducts() as $key => $val) { // в этом цикле сч�
             $model->name . ' | ' .
             $model->fabricator . ' | '
             . $val['qty'] . ' | ' .
-            round($model->price * $currency * $val['qty'], 2) . ' ' . $currencySign . ' | 
+            round($model->getDiscountPrice() * $currency * $val['qty'], 2) . ' ' . $currencySign . ' | 
             <button  type="button" class="btn btn-primary btn-sm cart-view" data-id="'.$model->id.'" title="Просмотр"><i class="fa fa-eye"></i></button> 
             <button type="button" class="btn btn-danger btn-sm cart-delete" data-id="'.$model->id.'" title="Удалить из корзины"><i class="fa fa-window-close cart-delete"></i></button> 
               </p></td>';

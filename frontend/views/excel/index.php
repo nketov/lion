@@ -51,7 +51,7 @@ use yii\widgets\Pjax;
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
                 'value' => function ($data) use ($currency, $currencySign) {
 //                    return $data->price . '  '.$currency;
-                    return round($data->price *$currency, 2). ' '.$currencySign;
+                    return round($data->getDiscountPrice() *$currency, 2). ' '.$currencySign;
                 },
                 'filter' => false],
             //'currency:ntext',

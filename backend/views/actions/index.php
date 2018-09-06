@@ -12,12 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="actions-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<i>Символ <b>*</b> вместо кода товара означает скидку на все товары</i>
     <p>
-<!--        --><?//= Html::a('Создать акцию', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать акцию', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

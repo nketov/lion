@@ -6,13 +6,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Actions */
 
-$this->title = 'Create Actions';
+$this->title = 'Создание акции';
 $this->params['breadcrumbs'][] = ['label' => 'Actions', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="actions-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <i>Символ <b>*</b> вместо кода товара означает скидку на все товары</i>
 
     <?= $this->render('_form', [
         'model' => $model,

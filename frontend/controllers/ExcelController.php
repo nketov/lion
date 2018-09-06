@@ -117,7 +117,7 @@ class ExcelController extends Controller
         $count=1;
         foreach ($products as $id=>$array) {
             $product = self::findModel($id);            
-            $order_content .= '<p>'.$count.'. '.$product->name. ' ('.$product->code.') '. $array['qty']. ' шт.  - '. round($product->price * $currency * $array['qty'], 2) . ' ' . $currencySign . ' </p>';
+            $order_content .= '<p>'.$count.'. '.$product->name. ' ('.$product->code.') '. $array['qty']. ' шт.  - '. round($product->getDiscountPrice() * $currency * $array['qty'], 2) . ' ' . $currencySign . ' </p>';
             $count++;
         }
         $order_content .= '<p><b> Всего: '.round($summ * $currency, 2) . ' ' . $currencySign .'</b></p>';

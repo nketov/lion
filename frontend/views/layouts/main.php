@@ -37,6 +37,7 @@ foreach (Yii::$app->session->getAllFlashes() as $message) {
         'showSeparator' => true,
         'pluginOptions' => ['placement' => ['from' => 'top','align' => 'right']]]);
 }
+
 ?>
 
 <?= $content ?>
