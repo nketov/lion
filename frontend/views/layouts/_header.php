@@ -236,7 +236,7 @@ if( $detect->isMobile() ){
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>                        <li><a href="/cart">Корзина</a></li>'
+                                    . '</li>                        <li><a href="/cart">Корзина</a></li>' 
                                 ) : (
                                     '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
@@ -295,7 +295,7 @@ if( $detect->isMobile() ){
                     </p>
 '
                                 ) : (
-                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность:</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/">Просроченная задолженность <i class="fa fa-history" style="font-size:24px;color:red"></i>:</a></li>'
+                                    '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность: '. Yii::$app->user->identity->credit.' грн.</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/">Просроченная задолженность <i class="fa fa-history" style="font-size:24px;color:red"></i>:</a>'. Yii::$app->user->identity->overdue_credit.' грн.</li>'
                                 ) ?>
                                 
                 </div>

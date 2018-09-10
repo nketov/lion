@@ -36,11 +36,41 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'order_content:raw',
             'summ',
+/*
+            ['attribute' => 'status',
+                'format' => 'raw',
+                'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
+                'value' => function ($data) {
+                    return  Html::dropDownList('status', $data->status, \common\models\Order::getStatuses());
+
+//                    return $data->user->email;
+                },
+            ],
+*/
 
             ['class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
+                'template' => '{view}{delete}',
             ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
+<?php
+$script = <<< JS
+$('select[name="status"]').on('change',
+    function() {
+       var status =$(this).val();
+       var order = $(this).closest('tr').data('key');
+        $.ajax({
+            method: "POST",
+            url: '/admin/order/status',
+            data: {status:status,order:order} 
+          })
+          .done(function( data ) {
+           console.log('Status Changed');   
+          });      
+    }
+);
+JS;
+$this->registerJs($script, yii\web\View::POS_READY);
+ ?>

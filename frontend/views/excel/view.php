@@ -2,6 +2,7 @@
 
 use common\models\ExcelSearch;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -13,48 +14,57 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="b-search">
     <div class="container">
-
         <?php echo $this->render('_search', ['searchModel' => new ExcelSearch()]); ?>
     </div>
 </section><!--b-search-->
 <div class="container">
-    <div class="col-lg-8">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h1><?= Html::encode($this->title) ?></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
 
-<!--    <p>-->
-<!--        --><?//= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-<!--        --><?//= Html::a('Delete', ['delete', 'id' => $model->id], [
-//            'class' => 'btn btn-danger',
-//            'data' => [
-//                'confirm' => 'Are you sure you want to delete this item?',
-//                'method' => 'post',
-//            ],
-//        ]) ?>
-<!--    </p>-->
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'code:ntext',
+                    'name:ntext',
+                    'analogs:ntext',
+                    'cars:ntext',
+                    'fabricator:ntext',
+                    'quantity',
+                    [
+                        'attribute' => 'price',
+                        'value' => function ($data) use ($currency) {
+                            return round($data->getDiscountPrice() * $currency, 2);
+                        }
+                    ],
+                    [
+                        'attribute' => 'currency',
+                        'value' => $currencyName
+                    ],
+                    'store:ntext',
+                ],
+            ]) ?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-//            'id',
-            'code:ntext',
-            'name:ntext',
-            'analogs:ntext',
-            'cars:ntext',
-            'fabricator:ntext',
-            'quantity',
-            [
-                'attribute' => 'price',
-                'value'  => function ($data) use ($currency){
-                    return  round($data->getDiscountPrice*$currency, 2) ;
-                }                
-            ],
-            [
-                'attribute' => 'currency',
-                'value'  => $currencyName                
-            ],         
-            'store:ntext',
-        ],
-    ]) ?>
-
-</div>
+        </div>
+        <?php
+        $image1 = '';
+        if (@get_headers(Url::to('/images/uploads/' . $model->code . '_1', true))[0] == 'HTTP/1.1 200 OK') $image1 = Url::to('/images/uploads/' . $model->code . '_1');
+        $image2 = '';
+        if (@get_headers(Url::to('/images/uploads/' . $model->code . '_2', true))[0] == 'HTTP/1.1 200 OK') $image2 = Url::to('/images/uploads/' . $model->code . '_2');
+        ?>
+        <div class="col-md-3">
+            <?php if ($image1) { ?>
+                <img src="<?= $image1 ?>" class="img-rounded img-thumbnail img-responsive">
+            <?php } ?>
+        </div>
+        <div class="col-md-3">
+            <?php if ($image2) { ?>
+                <img src="<?= $image2 ?>" class="img-rounded img-thumbnail img-responsive">
+            <?php } ?>
+        </div>
+    </div>
 </div>

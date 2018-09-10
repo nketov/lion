@@ -51,11 +51,24 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['credit','overdue_credit'], 'double'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
-    
+
+
+    public function attributeLabels()
+    {
+        return [
+
+            'email' => 'E-mail',
+            'created_at' => 'Зарегистрирован',
+            'credit' => 'Задолженность',
+            'overdue_credit' => 'Просроченная задолженность',
+            'discount' => 'Скидка',
+        ];
+    }
     
 
     /**

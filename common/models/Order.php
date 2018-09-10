@@ -29,7 +29,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date'], 'safe'],
+            [['date','status'], 'safe'],
             [['user_id', 'order_content', 'summ'], 'required'],
             [['user_id'], 'integer'],
             [['order_content'], 'string'],
@@ -48,12 +48,22 @@ class Order extends \yii\db\ActiveRecord
             'user_id' => 'Пользователь',
             'order_content' => 'Содержание заказа',
             'summ' => 'Сумма, евро',
+            'status' => 'Состояние',
         ];
     }
 
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public static function getStatuses()
+    {
+        return [
+            0 => 'Новый',
+            1 => 'В работе',
+            2 => 'Закрыт'        
+           ];
     }
 
 }

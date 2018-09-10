@@ -14,7 +14,8 @@ if (!Yii::$app->user->isGuest) { ?>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">История заказов</h3>
                         <p class="wow zoomInUp" data-wow-delay="0.7s">Задолженность: 0 грн</p>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Персональные предложения</h3>
-                        <p class="wow zoomInUp" data-wow-delay="0.7s">У вас нет персонального предложеения</p>
+                        <?php if(array_key_exists('*',$actions)) echo '<p class="wow zoomInUp" data-wow-delay="0.7s">Скидка на все остальные товары: '.$actions['*'].' %</p>'?>
+                        <?php if(!array_key_exists('*',$actions)) echo '<p class="wow zoomInUp" data-wow-delay="0.7s">У вас нет скидки. Обратитесь к менеджеру сайта.</p>'?>                        
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Ваш номер телефона</h3>
                         <p class="wow zoomInUp" data-wow-delay="0.7s">+380(__) ___-__-__ <a href="" title="Изменить"><i
                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
@@ -61,7 +62,7 @@ if (!Yii::$app->user->isGuest) { ?>
                                     }
                                 } ?>
                                 </table>
-                                <?php if(array_key_exists('*',$actions)) echo '<p>Скидка на все остальные товары: '.$actions['*'].' %</p>' ?>
+
                                 </div>
                                 <div class="col-lg-1 col-md-1">
                                 </div>

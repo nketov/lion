@@ -483,7 +483,7 @@ a.m-langLink{
     margin-top: 0px;
     padding: 35px 60px 50px 60px;
     z-index: 10;
-    position: relative;
+    position: fixed;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 

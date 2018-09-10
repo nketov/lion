@@ -37,8 +37,10 @@
                     ['label' => 'Содержание сайта', 'icon' => 'tv', 'url' => ['/content'],],
                     ['label' => 'Курсы валют', 'icon' => 'money', 'url' => ['/currency'],],
                     ['label' => 'Загрузка данных', 'icon' => 'upload', 'url' => ['/upload'],],
+//                    ['label' => 'Загрузка изображений', 'icon' => 'upload', 'url' => ['/image-upload'],],
                     ['label' => 'Акции', 'icon' => 'gift', 'url' => ['/actions'],],
                     ['label' => 'Заказы', 'icon' => 'shopping-basket', 'url' => ['/order'],],
+                    ['label' => 'Клиенты', 'icon' => 'user', 'url' => ['/user'],],
 //                    [
 //                        'label' => 'Some tools',
 //                        'icon' => 'share',

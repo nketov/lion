@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use app\models\ImageUploadForm;
 use app\models\UploadForm;
 use backend\components\excel_mysql\library\Excel_mysql;
 use common\models\Content;
@@ -31,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'upload', 'content','currency'],
+                        'actions' => ['logout', 'upload','image-upload', 'content','currency'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -88,11 +89,28 @@ class SiteController extends Controller
     }
 
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
+
+    public function actionImageUpload()
+    {
+
+        $model = new ImageUploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->image1 = UploadedFile::getInstance($model, 'image1');
+            $model->image2 = UploadedFile::getInstance($model, 'image2');
+            $model->code = trim(Yii::$app->request->post('ImageUploadForm')['code']);
+
+            if ($model->upload()) {
+                return $this->render('success', ['message' => 'Изображения успешно загружены!',
+                    'title' => 'Загрузка изображений']);
+            }
+        }
+
+        return $this->render('image-upload', ['model' => $model]);
+    }
+
+
+
     public function actionUpload()
     {
 
@@ -109,6 +127,10 @@ class SiteController extends Controller
 
         return $this->render('upload', ['model' => $model]);
     }
+
+
+
+
 
     /**
      * Login action.
