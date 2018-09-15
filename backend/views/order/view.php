@@ -24,16 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'order_content:raw',
-            'summ',
-            /*
-            ['attribute' => 'status',
-                'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
-                'value' => function ($data) {
-                    return \common\models\Order::getStatuses()[$data->status]
-                        ;
-                },
-            ],
-            */
+            'summ',         
+               ['attribute' => 'status',
+                   'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
+                   'value' => function ($data) {
+                       return \common\models\Order::getStatuses()[$data->status]
+                           ;
+                   },
+               ]
         ],
     ]) ?>
 

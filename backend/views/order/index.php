@@ -19,14 +19,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
 <!--        --><?//= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+<div class="row">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            ['attribute' => 'id',
+                'contentOptions' => ['style' => 'max-width:10%;white-space: normal; text-align:center'],
+                'filter' => false
+            ],
             'date',
             ['attribute' => 'user_id',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
@@ -36,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'order_content:raw',
             'summ',
-/*
+
             ['attribute' => 'status',
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
@@ -46,7 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
 //                    return $data->user->email;
                 },
             ],
-*/
 
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{view}{delete}',
@@ -54,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
     <?php Pjax::end(); ?>
+</div>
 </div>
 <?php
 $script = <<< JS
