@@ -118,3 +118,10 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+@media(max-width:1364px) {
+  td{
+      max-width: 100px;
+      overflow: hidden;
+  }
+}

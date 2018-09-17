@@ -31,12 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attributes' => [
                     'code:ntext',
                     'name:ntext',
-                    'analogs:ntext',
+                    [
+                        'attribute' => 'analogs',
+                        'contentOptions' => ['style' => 'word-wrap: break-word;
+	                                                                            word-break: break-all;']
+                    ],
                     'cars:ntext',
                     'fabricator:ntext',
                     'quantity',
                     [
                         'attribute' => 'price',
+                        'contentOptions' => ['class' => 'bg-red'],
                         'value' => function ($data) use ($currency) {
                             return round($data->getDiscountPrice() * $currency, 2);
                         }
@@ -47,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     'store:ntext',
                 ],
+
             ]) ?>
 
         </div>

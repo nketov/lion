@@ -16,7 +16,7 @@ use yii\widgets\Pjax;
 </section><!--b-search-->
 <div class="container">
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
+        'dataProvider' => $dataProvider,        
 //        'filterModel' => $searchModel,
         'layout' => "{items}{summary}{pager}",
         'options' => ['style' => 'font: bold 14px Tahoma'],
@@ -48,10 +48,11 @@ use yii\widgets\Pjax;
             'fabricator:ntext',
             'quantity',
             ['attribute' => 'price',
-                'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
+                'headerOptions' => ['style' => 'min-width:100px, text-align:right'],
+                'format'=>'raw',
                 'value' => function ($data) use ($currency, $currencySign) {
 //                    return $data->price . '  '.$currency;
-                    return round($data->getDiscountPrice() *$currency, 2). ' '.$currencySign;
+                    return round($data->getDiscountPrice() *$currency, 2). '&nbsp'.$currencySign;
                 },
                 'filter' => false],
             //'currency:ntext',
