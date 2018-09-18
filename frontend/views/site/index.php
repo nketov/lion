@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm; ?>
                         <h3>Найти деталь</h3>
                         <h2>Большой выбор</h2>
                         <p>В наличии <span>184 900 наименований</span></p>
-                        <a class="btn m-btn" href="detail.html">смотреть<span class="fa fa-angle-right"></span></a>
+                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm; ?>
                         <h3>Поиск среди аналогов</h3>
                         <h2>Большая база</h2>
                         <p>2018 <span>обновлено </span></p>
-                        <a class="btn m-btn" href="detail.html">смотреть<span class="fa fa-angle-right"></span></a>
+                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@ use yii\widgets\ActiveForm; ?>
                         <h3>Выгодно</h3>
                         <h2>Поиск по всем базам</h2>
                         <p>сотрудничаем <span>с 97 поставщтками</span></p>
-                        <a class="btn m-btn" href="detail.html">смотреть<span class="fa fa-angle-right"></span></a>
+                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

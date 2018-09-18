@@ -337,7 +337,7 @@
 <p><strong><em>от <?= date("d.m.Y"); ?></em> <?= Yii::$app->user->isGuest ?  yii\helpers\Html::a('войдите ', ['/login']).' чтобы заказать' : 'Заказчик:'.Yii::$app->user->identity->email  ?></strong></p>
 <h2>Крутите вниз чтобы просмотреть полностью</h2>
 
-<p><br><br><br><br><br><img class="cart" src="/images/backgrounds/cart.png" alt="cherry blossoms"></p>
+<p><br><br><br><br><br><br><br><br><br><img class="cart" src="/images/backgrounds/cart.png" alt="cherry blossoms"></p>
 <?php
 
 $rows = $cart->getQuantity(); // количество строк, tr
@@ -348,13 +348,13 @@ foreach ($cart->getProducts() as $key => $val) { // в этом цикле сч�
     $model = \common\models\Excel::findOne($key);
     if ($model) {
         echo '<tr>';
-        echo '<td><p>
-            ' . $tr . '  | ' .
-            $model->code . ' | ' .
-            $model->name . ' | ' .
-            $model->fabricator . ' | '
-            . $val['qty'] . ' | ' .
-            round($model->getDiscountPrice() * $currency * $val['qty'], 2) . ' ' . $currencySign . ' | 
+        echo '<td><p><b>
+            ' . $tr . '. </b></td><td> ' .
+            $model->code . '&nbsp&nbsp&nbsp&nbsp</td><td><b style="color: #008"> ' .
+            $model->name . '&nbsp&nbsp&nbsp&nbsp</b></td><td> ' .
+            $model->fabricator . '&nbsp&nbsp&nbsp&nbsp </td><td><b style="color: #A00"> '
+            . $val['qty'] . '&nbspшт.&nbsp&nbsp&nbsp</b> </td><td><b style="color: #090"> ' .
+            round($model->getDiscountPrice() * $currency * $val['qty'], 2) . ' ' . $currencySign . ' </b></td><td> 
             <button  type="button" class="btn btn-primary btn-sm cart-view" data-id="'.$model->id.'" title="Просмотр"><i class="fa fa-eye"></i></button> 
             <button type="button" class="btn btn-danger btn-sm cart-delete" data-id="'.$model->id.'" title="Удалить из корзины"><i class="fa fa-window-close cart-delete"></i></button> 
               </p></td>';
@@ -380,9 +380,6 @@ echo '</p>';
     <li>Новая почта</li>
     <li>Другой</b></li>
 </ul>
-<p>Сайты с тонкими линиями они как фрики в современном веб-дизайне, но ведь это и прекрасно, они дают нам тот
-    пользовательский опыт который мы ранее не видели. Это нечто свежее и интересное, чего пользователь ранее не видел.
-    Не бойтесь экспериментировать и, возможно, завтра о вашем сайте напишут как о примере искусства.</p>
 
 
 

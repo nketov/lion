@@ -22,13 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
 				<br>
 				<div>
 				<h1 class="wow zoomInUp" data-wow-delay="0.7s">Только для Вас:</h1>
-				<img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.7s" src="/images/backgrounds/cart.png" alt="404" />
+				<img  style="height: 325px; background-color: rgba(255,0,0,0.1);" class="img-responsive center-block wow zoomInUp" data-wow-delay="0.7s" src="/images/backgrounds/prize.jpg" alt="404" />
 				<h2 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Специальное предложение</h2>
 					<div class=row>
 						<div class="col-lg-1 col-md-1">
 						</div>
 						<div class="col-lg-10 col-md-10">
-							<table>
+							<table class="table table-hover table-responsive table-striped">
+								<thead class="thead-dark">
 								<tr>
 									<th>Товар</th>
 									<th>Код</th>
@@ -36,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									<th>Скидка</th>
 									<th>Цена со скидкой</th>
 								</tr>
+								</thead>
 								
 								<?php
 								foreach ($actions as $key=>$action) {
@@ -50,14 +52,14 @@ $this->params['breadcrumbs'][] = $this->title;
 											<td style="padding:10px"><?= $key ?></td>
 											<td style="padding:10px"><?= $price . ' ' . $currencySign ?></td>
 											<td style="padding:10px"><?= $action . '  %' ?></td>
-											<td style="padding:10px"><?= $price2 . ' ' . $currencySign ?></td>
+											<td style="padding:10px;color: #00a157;text-align: right"><b><?= $price2 . ' ' . $currencySign ?></b></td>
 										</tr>
 
 										<?php
 									}
 								} ?>
 							</table>
-							<?php if(array_key_exists('*',$actions)) echo '<p>Скидка на все остальные товары: '.$actions['*'].' %</p>' ?>
+							<?php if(array_key_exists('*',$actions)) echo '<h4 style="color: #0D3349">Скидка на все остальные товары: <span style="color:#1EBB30;font-size: 3rem ">'.$actions['*'].'%</span></h4>' ?>
 						</div>
 						<div class="col-lg-1 col-md-1">
 						</div>

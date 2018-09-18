@@ -58,9 +58,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <?php
         $image1 = '';
-        if (@get_headers(Url::to('/images/uploads/' . $model->code . '_1', true))[0] == 'HTTP/1.1 200 OK') $image1 = Url::to('/images/uploads/' . $model->code . '_1');
+        if (@get_headers(Url::to('/images/uploads/' . \str_replace('/','_____',$model->code . '_1'), true))[0] == 'HTTP/1.1 200 OK') $image1 = Url::to('/images/uploads/' . \str_replace('/','_____',$model->code . '_1'));
         $image2 = '';
-        if (@get_headers(Url::to('/images/uploads/' . $model->code . '_2', true))[0] == 'HTTP/1.1 200 OK') $image2 = Url::to('/images/uploads/' . $model->code . '_2');
+        if (@get_headers(Url::to('/images/uploads/' . \str_replace('/','_____',$model->code . '_2'), true))[0] == 'HTTP/1.1 200 OK') $image2 = Url::to('/images/uploads/' .\str_replace('/','_____',$model->code . '_2'));
         ?>
         <div class="col-md-3">
             <?php if ($image1) { ?>

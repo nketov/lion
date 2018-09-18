@@ -167,4 +167,6 @@ thead{
     display: none;
 }
 
-
+table{
+    border-radius: 7px !important;
+}

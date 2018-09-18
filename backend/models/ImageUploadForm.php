@@ -37,9 +37,9 @@ class ImageUploadForm extends Model
     {
         if ($this->validate()) {
             if($this->image1)
-            $this->image1->saveAs(Url::to('@frontend/web/images/uploads/') . $this->code.'_1' );
+            $this->image1->saveAs(Url::to('@frontend/web/images/uploads/') . \str_replace('/','_____',$this->code.'_1'));
             if($this->image2)
-            $this->image2->saveAs(Url::to('@frontend/web/images/uploads/') . $this->code.'_2');
+            $this->image2->saveAs(Url::to('@frontend/web/images/uploads/') . \str_replace('/','_____',$this->code.'_2'));
             return true;
         } else {
             return false;
