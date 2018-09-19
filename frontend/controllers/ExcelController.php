@@ -39,7 +39,6 @@ class ExcelController extends Controller
      */
     public function actionIndex()
     {
-           
         $searchModel = new ExcelSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
