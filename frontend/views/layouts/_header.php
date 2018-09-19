@@ -14,7 +14,7 @@ $detect = new Mobile_Detect;
 // Any mobile device (phones or tablets).
 if ( $detect->isMobile() ) {
  echo "<html title=\"Lion-auto mobile\"><body>Mobile version</body></html>";
-} else  echo "<html title=\"Lion-auto mobile\"><body>Computer version</body></html>";
+} else  echo "<html title=\"Lion-auto mobile\"><body></body></html>";
 
 if( $detect->isMobile() ){
 ?>
@@ -290,9 +290,7 @@ if( $detect->isMobile() ){
                 
                 <?= Yii::$app->user->isGuest  ?  (
                                     '                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
-                    <p>
-                        Автозапчасти
-                    </p>
+                   
 '
                                 ) : (
                                     '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность: '. Yii::$app->user->identity->credit.' грн.</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/">Просроченная задолженность <i class="fa fa-history" style="font-size:24px;color:red"></i>:</a>'. Yii::$app->user->identity->overdue_credit.' грн.</li>'
