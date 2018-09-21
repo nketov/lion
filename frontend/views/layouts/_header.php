@@ -4,8 +4,8 @@ use common\models\Actions;
 use common\models\Currency;
 use yii\bootstrap\Html;
 
-$content = common\models\Content::findOne(1);
 ?>
+
 
 <?php require_once "Mobile_Detect.php";
 $detect = new Mobile_Detect;
@@ -38,7 +38,7 @@ if( $detect->isMobile() ){
             <div class="col-md-12 col-xs-12">
                 <div class="b-topBar__addrMobile">
                     <span class="fa fa-map-marker"></span>
-                    <?= $content->address ?>
+                    <?= $headerContent->address ?>
                 </div>
             </div>
          </div>   
@@ -46,7 +46,7 @@ if( $detect->isMobile() ){
             <div class="col-md-12 col-xs-12">
                 <div class="b-topBar__telMobile">
 
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $content->phone ?></a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $headerContent->phone ?></a>
                 </div>
             </div>
          </div>   
@@ -215,13 +215,13 @@ if( $detect->isMobile() ){
             <div class="col-md-3 col-xs-6">
                 <div class="b-topBar__addr">
                     <span class="fa fa-map-marker"></span>
-                    <?= $content->address ?>
+                    <?= $headerContent->address ?>
                 </div>
             </div>
             <div class="col-md-1 col-xs-6">
                 <div class="b-topBar__tel">
 
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $content->phone ?></a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $headerContent->phone ?></a>
                 </div>
             </div>
             <div class="col-md-4 col-xs-6">

@@ -125,3 +125,8 @@ a.desc:after {
       overflow: hidden;
   }
 }
+
+h1{
+    color: #175;
+    font-weight: bold;
+}
