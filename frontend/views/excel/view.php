@@ -18,11 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </section><!--b-search-->
 <div class="container">
+    <br>
     <div class="row">
         <div class="col-md-12">
             <h1><?= Html::encode($this->title) ?></h1>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-6">
 
@@ -55,7 +57,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ]) ?>
 
-        </div>
+            <div class="form-group text-right">
+                <?= $model->quantity ? Html::a(
+                    '<span class="add-cart fa fa-cart-arrow-down" data-id='.$model->id.' data-qty='.$model->quantity.'> &nbsp Добавить в Корзину',
+                    Url::to(['excel/add-cart']),['class' => 'btn btn-lg btn-primary']
+                ):"<br><br>"
+                ?>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </div>
         <?php
         $image1 = '';
         if (@get_headers(Url::to('/images/uploads/' . \str_replace('/','_____',$model->code . '_1'), true))[0] == 'HTTP/1.1 200 OK') $image1 = Url::to('/images/uploads/' . \str_replace('/','_____',$model->code . '_1'));

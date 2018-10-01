@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\controllers;
 
 use common\models\Actions;
@@ -38,7 +39,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'cart','about','actions', 'cabinet', 'rezerv'],
+                        'actions' => ['logout', 'cart', 'about', 'actions', 'cabinet', 'rezerv'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -76,12 +77,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel= new ExcelSearch();        
+        $searchModel = new ExcelSearch();
         return $this->render('index', compact('searchModel'));
     }
 
-    
-    
 
     /**
      * Logs in a user.
@@ -105,8 +104,8 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
-        
-        
+
+
     }
 
     /**
@@ -164,7 +163,7 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {                    
+                if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
             }
@@ -224,43 +223,55 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionChangeCurrency(){
-               
-        if(Yii::$app->request->isAjax && ($data = Yii::$app->request->post())) {
+    public function actionChangeCurrency()
+    {
+
+        if (Yii::$app->request->isAjax && ($data = Yii::$app->request->post())) {
             Yii::$app->session->set('currency', $data['currency']);
             Yii::$app->session->set('currency', $data['currency']);
         }
     }
 
 
-    public function actionCart(){      
-        $cart= new Cart();
-        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
-        $currencySign=Currency::$currencySign[$currency];
+    public function actionCart()
+    {
+        $cart = new Cart();
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
+        $currencySign = Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
 
-        return $this->render('cart', compact('cart','currency','currencySign'));
+        return $this->render('cart', compact('cart', 'currency', 'currencySign'));
     }
 
-    public function actionCabinet(){
-        $actions= Actions::getDiscounts();
-        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
-        $currencySign=Currency::$currencySign[$currency];
+    public function actionCabinet()
+    {
+        $user = Yii::$app->user->identity;
+
+        if (!empty($phone = Yii::$app->request->post('User')['phone'])) {
+            $user->phone = $phone;
+            $user->save();
+        }
+
+        $actions = Actions::getDiscounts();
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
+        $currencySign = Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
-        return $this->render('cabinet',compact('actions','currency','currencySign'));
+        return $this->render('cabinet', compact('actions', 'currency', 'currencySign', 'user'));
     }
 
-    public function actionActions(){
+    public function actionActions()
+    {
 
-        $actions= Actions::getDiscounts();
-        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR' ;
-        $currencySign=Currency::$currencySign[$currency];
+        $actions = Actions::getDiscounts();
+        $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
+        $currencySign = Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
 
-    return $this->render('actions',compact('actions','currency','currencySign'));
-}
+        return $this->render('actions', compact('actions', 'currency', 'currencySign'));
+    }
 
-    public function actionRezerv(){
+    public function actionRezerv()
+    {
         return $this->render('rezerv');
     }
 

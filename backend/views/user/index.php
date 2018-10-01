@@ -35,11 +35,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             //'status',
             [
+                'attribute' => 'phone',
+                'value' => function ($data) {
+                    $string = $data->phone;
+                    return '+38 (0' . $string[0] . $string[1] . ') ' . $string[2] . $string[3] . $string[4] . ' ' . $string[5] . $string[6] . ' ' . $string[7] . $string[8];
+                }
+            ],
+            [
                 'attribute' => 'created_at',
                 'value' => function ($data) {
                     return date(' d.m.Y H:i', $data->created_at);
                 }
             ],
+
+
 //            'updated_at',
             ['attribute' => 'credit',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],

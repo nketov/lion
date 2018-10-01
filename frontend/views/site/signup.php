@@ -32,11 +32,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <p>Пожалуйста заполните следующие поля для регистрации:</p>
                     
-                    <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                    <?php $form = ActiveForm::begin(['id' => 'form-signup','enableClientValidation'=>true]); ?>
 
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <?=  $form->field($model, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
+                    'mask' => '+38 (099) 999 99 99',
+                    'clientOptions'=>[
+                        'removeMaskOnSubmit' => true,
+                    ]
+                ])->textInput(); ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

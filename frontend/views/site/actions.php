@@ -4,9 +4,6 @@
 
 use common\models\Excel;
 
-
-$this->title = 'Contacts';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <br><br><br><br>
 <section class="b-actions">
@@ -34,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             <th>Код</th>
                             <th>Цена</th>
                             <th>Скидка</th>
-                            <th>Цена со скидкой</th>
+                            <th style="padding:10px;color: #00a157;text-align: right" >Цена со скидкой</th>
+                            <th></th>
                         </tr>
                         </thead>
 
@@ -49,10 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <tr>
                                     <td style="padding:10px"><?= $product->name ?></td>
                                     <td style="padding:10px"><?= $key ?></td>
-                                    <td style="padding:10px"><?= $price . ' ' . $currencySign ?></td>
-                                    <td style="padding:10px"><?= $action . '  %' ?></td>
+                                    <td style="padding:10px"><?= $price . '&nbsp' . $currencySign ?></td>
+                                    <td style="padding:10px"><?= $action . '&nbsp%' ?></td>
                                     <td style="padding:10px;color: #00a157;text-align: right">
-                                        <b><?= $price2 . ' ' . $currencySign ?></b></td>
+                                        <b><?= $price2 . '&nbsp' . $currencySign ?></b></td>
+                                    <td style="padding:10px"><button  type="button" class="btn btn-primary btn-sm cart-view" data-id="<?= $product->id?>" title="Просмотр"><i class="fa fa-eye"></i></button></td>
                                 </tr>
 
                                 <?php

@@ -11,6 +11,7 @@ class SignupForm extends Model
 {
     public $email;
     public $password;
+    public $phone;
 
 
     /**
@@ -24,11 +25,21 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
-
+            ['phone', 'required'],
+            ['phone', 'string', 'min' => 9, 'message' => 'Неверный номер'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
         ];
     }
+    public function attributeLabels()
+    {
+        return [
+
+            'email' => 'E-mail',
+            'phone' => 'Телефон'
+        ];
+    }
+
 
     /**
      * Signs user up.
@@ -43,6 +54,7 @@ class SignupForm extends Model
         
         $user = new User();      
         $user->email = $this->email;
+        $user->phone = $this->phone;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         

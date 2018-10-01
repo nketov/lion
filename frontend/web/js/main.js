@@ -69,4 +69,10 @@ $(document).ready(function ($) {
         window.location.href = "/excel/delete-cart?id="+id;
     })
 
+
+    $('.phone-change').on('click', function (e) {
+        e.preventDefault();
+        $('#phone-modal').modal('show');
+    })
+
 });

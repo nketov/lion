@@ -78,23 +78,6 @@ use yii\widgets\Pjax;
     <?php Pjax::end(); ?> 
 </div>
 
-<div id="cart-modal" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="text-align: center">
-                <h5 class="modal-title">Выберите количество товара</h5>
-            </div>
-            <div class="modal-body" style="text-align: center">
-                <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                <input type="number" min="1" max="5" value="1" readonly class="raz">
-                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-            </div>
-            <div class="modal-footer" style="text-align: center">
-                <button id="modal-add" type="button" class="btn btn-primary">Добавить в корзину</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 

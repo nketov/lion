@@ -11,7 +11,6 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
- * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -52,6 +51,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['credit','overdue_credit'], 'double'],
+            ['phone', 'string', 'length' => 9, 'message' => 'Неверный номер'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
@@ -63,6 +63,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
 
             'email' => 'E-mail',
+            'phone' => 'Телефон',
             'created_at' => 'Зарегистрирован',
             'credit' => 'Задолженность',
             'overdue_credit' => 'Просроченная задолженность',
