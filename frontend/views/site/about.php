@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = 'Список документов:';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -14,18 +14,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="container">
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-    <p>This is the About page. You may modify the following file to customize its content:</p>
+        <ul >
+            <li><a href="#" style="float:left">1. Прайс товаров (EXEL)</a></li>
+            <li><a href="#" style="float:left">2. Договор (WORD)</a></li>
+            <li><a href="#" style="float:left">3. Акт рекламации (WORD)</a></li>
+            <li><a href="#" style="float:left">4. Накладная возврата товара (EXEL)</a></li>
+            <li><a href="#" style="float:left">5. Заявление на рекламацию (WORD)</a></li>
+            <li><a href="#" style="float:left">6. Бланк (наряд заказ для СТО) (WORD)</a></li>
+        </ul>
+    
 
 
 </div>

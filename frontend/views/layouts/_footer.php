@@ -1,3 +1,6 @@
+<?php
+   require("_social.php");
+?>
 <div id="cart-modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -21,34 +24,35 @@
     <a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
     <div class="container">
         <div class="row">
+        
             <div class="col-xs-4">
                 <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
                     <div class="b-nav__logo">
                         <h3><a href="index.html">Lion-Auto<span>.com.ua</span></a></h3>
                     </div>
-                    <p>&copy; 2018 Designed by Saggitarius &amp; Powered by SCCC.</p>
+                    <p>&copy; 2018 Designed by Saggitarius &amp; Powered by Ukrdeveloper.pro</p>
                 </div>
             </div>
             <div class="col-xs-8">
                 <div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
                     <div class="b-footer__content-social">
-                        <a id="share" href="http://www.facebook.com/sharer.php?u=http://lion-auto.sccc.online">
-								    <span class="fa fa-facebook-square" >
-                        </a>
-
-                        <a href="https://plus.google.com/share?url=http://lion-auto.sccc.online"><span class="fa fa-google-plus-square"></span></a>
+                        <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=700,height=400');" href="javascript: void(0)">
+    <span class="fa fa-facebook-square" ></span></a>
+                        
+                        
+                        <a href="https://plus.google.com/share?url=http://lion-auto.com.ua"><span class="fa fa-google-plus-square"></span></a>
                         <a href="#"><span class="fa fa-skype"></span></a>
                     </div>
                     <nav class="b-footer__content-nav">
                         <ul>
-                            <li><a href="/home.html">Акции</a></li>
-                            <li><a href="/404.html">Масла</a></li>
-                            <li><a href="/listings.html">Войти</a></li>
-                            <li><a href="/about.html">О Нас</a></li>
-                            <li><a href="/404.html">VIN</a></li>
-                            <li><a href="/blog.html">Курсы валют</a></li>
-                            <li><a href="/listTable.html">Документы</a></li>
-                            <li><a href="/contacts.html">Контакты</a></li>
+                        
+                            <li><a href="/actions">Акции</a></li>
+                            <li><a href="/login">Войти</a></li>
+                            <li><a href="/excel">Поиск</a></li>
+                            <li><a href="/cart">Корзина</a></li>
+                            <li><a data-toggle="tooltip" title="&nbsp;&nbsp;&nbsp;Евро : <?=$euro ?>&#10;Доллар : <?=$dollar ?>&#10;Рубль : <?=$rur ?>" href="#" class="dropdown-toggle" data-toggle='dropdown'>Курсы валют</a></li>
+                            <li><a href="/about">Документы</a></li>
+                            <li><a href="/contact">Контакты</a></li>
                         </ul>
                     </nav>
                 </div>

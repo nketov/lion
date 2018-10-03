@@ -131,13 +131,13 @@ if( $detect->isMobile() ){
                             <li>
                                 <a  href="/actions">Акции</a>
                             </li>
-                            <li><a href="/compare.html">Масла</a></li>
+                            <li><a href="/excel">Масла</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle='dropdown' href="#">Прайсы</a>
 
                             </li>
                             <li><a href="/about">Докуметы</a></li>
-                            <li><a href="/submit1.html">Запрос по VIN</a></li>
+                            <li><a href="/contact">Запрос по VIN</a></li>
                             <li><a href="/contact">Контакты</a></li>
                         </ul>
                     </div>
@@ -315,13 +315,13 @@ if( $detect->isMobile() ){
                             <li>
                                 <a  href="/actions">Акции</a>
                             </li>
-                            <li><a href="/compare.html">Масла</a></li>
+                            <li><a href="/excel">Масла</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle='dropdown' href="#">Прайсы</a>
 
                             </li>
                             <li><a href="/about">Докуметы</a></li>
-                            <li><a href="/submit1.html">Запрос по VIN</a></li>
+                            <li><a href="/contact">Запрос по VIN</a></li>
                             <li><a href="/contact">Контакты</a></li>
                         </ul>
                     </div>
