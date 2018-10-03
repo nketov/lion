@@ -15,7 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            ['attribute' => 'id',
+                'contentOptions' => ['style' => 'max-width:10%;white-space: normal;'],
+                'filter' => false
+            ],
             'date',
             ['attribute' => 'user_id',
                 'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
@@ -24,14 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'order_content:raw',
-            'summ',         
-               ['attribute' => 'status',
-                   'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
-                   'value' => function ($data) {
-                       return \common\models\Order::getStatuses()[$data->status]
-                           ;
-                   },
-               ]
+            'summ',        
+            ['attribute' => 'status',
+                'headerOptions' => ['style' => 'min-width:80px, text-align:right'],
+                'value' => function ($data) {
+                    return \common\models\Order::getStatuses()[$data->status]
+                        ;
+                },
+            ],          
         ],
     ]) ?>
 
