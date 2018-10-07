@@ -221,7 +221,7 @@ if( $detect->isMobile() ){
             <div class="col-md-1 col-xs-6">
                 <div class="b-topBar__tel">
 
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $headerContent->phone ?></a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°" style="position: relative; top: px"><i class="fa fa-phone"></i>+380666034768<br><i class="fa fa-phone"></i>+380666034768<br><i class="fa fa-phone"></i>+380666034768</a>
                 </div>
             </div>
             <div class="col-md-4 col-xs-6">
@@ -236,7 +236,7 @@ if( $detect->isMobile() ){
                                         ['class' => 'user']
                                     )
                                     . Html::endForm()
-                                    . '</li>                        <li><a href="/cart">Корзина</a></li>' 
+                                    . '</li>                        <li><a href="/cart">Корзина</a></li>'
                                 ) : (
                                     '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">'
                                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
