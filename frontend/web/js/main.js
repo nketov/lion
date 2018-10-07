@@ -18,12 +18,19 @@ $(document).ready(function ($) {
             data: {currency: currency},
         })
             .done(function (data) {
-                if (currency != $('#currency').attr('value'))  location.reload();
+                if (currency != $('#currency').attr('value'))
+                    location.reload();
             });
 
 
         // location.href = 'google.com';
     });
+
+
+    $('.img-responsive').on('click', function (e) {
+        window.open($(this).attr("src"),'_blank');
+    });
+
 
     $('.add-cart').on('click', function (e) {
         e.preventDefault();
@@ -31,11 +38,10 @@ $(document).ready(function ($) {
         var qty = $(this).data('qty');
         $('#cart-modal').modal('show');
         $('#cart-modal').find('input').val(1);
-        $('#cart-modal').find('input').data('id',id);
-        $('#cart-modal').find('input').attr('max',qty);
+        $('#cart-modal').find('input').data('id', id);
+        $('#cart-modal').find('input').attr('max', qty);
 
     })
-
 
 
     $('#modal-add').on('click', function (e) {
@@ -60,13 +66,13 @@ $(document).ready(function ($) {
     $('.cart-view').on('click', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
-        window.location.href = "/excel/view?id="+id;
+        window.location.href = "/excel/view?id=" + id;
     })
 
     $('.cart-delete').on('click', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
-        window.location.href = "/excel/delete-cart?id="+id;
+        window.location.href = "/excel/delete-cart?id=" + id;
     })
 
 

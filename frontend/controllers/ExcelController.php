@@ -132,7 +132,7 @@ class ExcelController extends Controller
 
         $cart->resetCart();
         Yii::$app->session->setFlash('success', 'Ваш заказ отправлен!');
-        $this->redirect(Url::to(['/cart']));
+        $this->redirect(Url::to(['/']));
         
     }
 

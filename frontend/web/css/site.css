@@ -163,3 +163,13 @@ thead{
 table{
     border-radius: 7px !important;
 }
+
+.img-responsive{
+    cursor: pointer;
+}
+
+
+.img-responsive:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
