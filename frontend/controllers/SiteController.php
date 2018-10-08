@@ -254,10 +254,12 @@ class SiteController extends Controller
         }
 
         $actions = Actions::getDiscounts();
+        $lastOrders = \common\models\Order::find()->where(['user_id' => $user->id])->all();
+
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
         $currencySign = Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
-        return $this->render('cabinet', compact('actions', 'currency', 'currencySign', 'user'));
+        return $this->render('cabinet', compact('actions', 'currency', 'currencySign', 'user','lastOrders'));
     }
 
     public function actionActions()

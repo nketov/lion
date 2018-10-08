@@ -80,6 +80,35 @@ if (!Yii::$app->user->isGuest) {
                             </div>
                         </div>
 
+                        <?php if (!empty($lastOrders)) { ?>
+                        <div class=row>
+                            <h5 style="text-align: center">Последние заказы:</h5>
+                            <div class="col-lg-12 col-md-12">
+                                <table class="table table-hover table-responsive table-striped">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Номер</th>
+                                        <th>Дата</th>
+                                        <th>Состояние</th>
+
+                                    </tr>
+                                    </thead>
+                                    <?php foreach ($lastOrders as $order) {
+                                            ?>
+                                            <tr>
+                                                <td style="padding:10px">№ <?= $order->id ?></td>
+                                                <td style="padding:10px"><?= $order->date ?></td>
+                                                <td style="padding:10px"><b><?= \common\models\Order::getStatuses()[$order->status] ?></b></td>
+                                            </tr>
+                                            <?php
+                                    } ?>
+
+
+                                </table>
+                            </div>
+                        </div>
+                        <?php } ?>
+
                     </div>
                     <!--			    		        <p class="wow zoomInUp" data-wow-delay="0.7s">В данный момент страница с информацией находится в разработке</p>-->
                 </div>
