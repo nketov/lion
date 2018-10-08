@@ -27,8 +27,8 @@ class Content extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['address', 'phone','keywords','description'], 'required'],
-            [['address', 'phone','keywords','description'], 'string'],
+            [['address', 'icq','keywords','description'], 'required'],
+            [['address', 'icq','keywords','description'], 'string'],
         ];
     }
 
@@ -40,7 +40,7 @@ class Content extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'address' => 'Адрес',
-            'phone' => 'Телефон',
+            'icq' => 'ICQ',
         ];
     }
 }

@@ -12,6 +12,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 $headerContent = common\models\Content::findOne(1);
+$contacts = common\models\Contacts::find()->all();
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -19,14 +20,14 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
 
-    <?= $this->render('_head.php',compact('headerContent')) ?>
+    <?= $this->render('_head.php',compact(['headerContent'])) ?>
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
 </head>
 <body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
 <?php $this->beginBody() ?>
 
-<?= $this->render('_header.php',compact('headerContent')) ?>
+<?= $this->render('_header.php',compact(['headerContent','contacts'])) ?>
 
 <?php
 foreach (Yii::$app->session->getAllFlashes() as $message) {

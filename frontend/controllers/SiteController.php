@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use common\models\Actions;
 use common\models\Cart;
+use common\models\Contacts;
 use common\models\Currency;
 use common\models\ExcelSearch;
 use Yii;
@@ -127,6 +128,8 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $contacts=Contacts::find()->all();
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -137,9 +140,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
+            return $this->render('contact', compact(['model','contacts']));
         }
     }
 

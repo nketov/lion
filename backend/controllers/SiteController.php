@@ -1,9 +1,11 @@
 <?php
+
 namespace backend\controllers;
 
 use app\models\ImageUploadForm;
 use app\models\UploadForm;
 use backend\components\excel_mysql\library\Excel_mysql;
+use common\models\Contacts;
 use common\models\Content;
 use common\models\Currency;
 use Yii;
@@ -32,7 +34,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'upload','image-upload', 'content','currency'],
+                        'actions' => ['logout', 'upload', 'image-upload', 'content', 'currency'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -61,15 +63,27 @@ class SiteController extends Controller
 
     public function actionContent()
     {
+
         $model = Content::findOne(1);
+
+
+        if (!empty($id = Yii::$app->request->post('Contacts')['id'])) {
+            $contact = Contacts::findOne($id);
+            if ($contact->load(Yii::$app->request->post()) && $contact->save()) {
+                return $this->render('success', ['message' => 'Данные успешно сохранены!',
+                    'title' => 'Содержание сайта']);
+            }
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->render('success', ['message' => 'Данные успешно сохранены!',
                 'title' => 'Содержание сайта']);
         } else {
-            return $this->render('content', [
-                'model' => $model,
-            ]);
+            $contacts = [];
+            for ($i = 1; $i < 9; $i++) {
+                $contacts[$i] = Contacts::findOne($i);
+            }
+            return $this->render('content', compact(['model', 'contacts']));
         }
     }
 
@@ -87,7 +101,6 @@ class SiteController extends Controller
             ]);
         }
     }
-
 
 
     public function actionImageUpload()
@@ -110,7 +123,6 @@ class SiteController extends Controller
     }
 
 
-
     public function actionUpload()
     {
 
@@ -127,9 +139,6 @@ class SiteController extends Controller
 
         return $this->render('upload', ['model' => $model]);
     }
-
-
-
 
 
     /**

@@ -53,12 +53,17 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-6">
             <p> Контакты:</p>
-            <p>+380666034768 (viber)- ст. менеджер Николай</p>
-            <p>+380677990756- ст. менеджер Николай</p>
-            <p>+380504788871- менеджер Андрей</p>
-            <p>+380953006640- сверка</p>
-            <p>imail: Lionauto.in.ua@gmail.com</p>
-            <p>icq: 699182412</p>
+
+            <?php foreach ($contacts as $contact) {
+                if (!($contact->phone)) continue;
+                ?>
+                <p><img src="/images/icons/<?= $contact->icon ?>" alt=""> <?= $contact->phone ?> - <?= $contact->text ?>
+                </p>
+
+            <?php } ?>
+
+            <p><img src="/images/icons/email.png" alt=""> Lionauto.in.ua@gmail.com</p>
+            <p><img src="/images/icons/icq.png" alt=""> <?= common\models\Content::findOne(1)->icq ?></p>
             <br>
             <p>График работы:</p>
             <p>Пн: 9:00- 16:00</p>

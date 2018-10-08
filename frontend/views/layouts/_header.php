@@ -45,8 +45,7 @@ if( $detect->isMobile() ){
          <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="b-topBar__telMobile">
-
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°"><i class="fa fa-phone"></i><?= $headerContent->phone ?></a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°" style="position: relative; top: -12px"><i class="fa fa-phone"></i><?= $contacts[0]->phone ?><br><i class="fa fa-phone"></i><?= $contacts[1]->phone ?><br><i class="fa fa-phone"></i><?= $contacts[2]->phone ?></a>
                 </div>
             </div>
          </div>   
@@ -221,7 +220,7 @@ if( $detect->isMobile() ){
             <div class="col-md-1 col-xs-6">
                 <div class="b-topBar__tel">
 
-                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°" style="position: relative; top: px"><i class="fa fa-phone"></i>+380666034768<br><i class="fa fa-phone"></i>+380666034768<br><i class="fa fa-phone"></i>+380666034768</a>
+                    <a class = 'phones' href="/contact" title="Мы работаем с 9°° до 16°°" style="position: relative; top: -12px"><i class="fa fa-phone"></i><?= $contacts[0]->phone ?><br><i class="fa fa-phone"></i><?= $contacts[1]->phone ?><br><i class="fa fa-phone"></i><?= $contacts[2]->phone ?></a>
                 </div>
             </div>
             <div class="col-md-4 col-xs-6">
