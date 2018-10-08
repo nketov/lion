@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php } ?>
 
-            <p><img src="/images/icons/email.png" alt=""> Lionauto.in.ua@gmail.com</p>
+            <p><img src="/images/icons/email.png" alt=""> lionauto.in.ua@gmail.com</p>
             <p><img src="/images/icons/icq.png" alt=""> <?= common\models\Content::findOne(1)->icq ?></p>
             <br>
             <p>График работы:</p>
