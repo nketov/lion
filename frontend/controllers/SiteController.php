@@ -254,7 +254,7 @@ class SiteController extends Controller
         }
 
         $actions = Actions::getDiscounts();
-        $lastOrders = \common\models\Order::find()->where(['user_id' => $user->id])->all();
+        $lastOrders = \common\models\Order::find()->where(['user_id' => $user->id])->orderBy(['data' => SORT_DESC])->limit(5)->all();
 
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
         $currencySign = Currency::$currencySign[$currency];

@@ -54,6 +54,9 @@ $(document).ready(function ($) {
                 data: {id: id, qty: qty},
                 type: 'GET',
                 success: function (res) {
+                    $('.cart-counter').css('opacity','1');
+                    var count = 1+ parseInt($('.cart-counter').text());
+                    $('.cart-counter').text(count++);
                     alert('Товар добавлен в корзину!')
                 },
                 error: function () {
@@ -80,5 +83,9 @@ $(document).ready(function ($) {
         e.preventDefault();
         $('#phone-modal').modal('show');
     })
+
+    if($('.cart-counter').text() >0){
+        $('.cart-counter').css('opacity','1');
+    }
 
 });
