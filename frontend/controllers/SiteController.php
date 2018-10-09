@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Actions;
+use common\models\ActionsContent;
 use common\models\Cart;
 use common\models\Contacts;
 use common\models\Currency;
@@ -79,7 +80,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $searchModel = new ExcelSearch();
-        return $this->render('index', compact('searchModel'));
+        $contents=ActionsContent::find()->all();
+        return $this->render('index', compact(['searchModel','contents']));
     }
 
 
@@ -265,12 +267,13 @@ class SiteController extends Controller
     public function actionActions()
     {
 
+        $contents=ActionsContent::find()->all();
         $actions = Actions::getDiscounts();
         $currency = !empty(Yii::$app->session->get('currency')) ? Yii::$app->session->get('currency') : 'EUR';
         $currencySign = Currency::$currencySign[$currency];
         $currency = ($currency == 'EUR') ? 1 : Currency::getCurrency($currency);
 
-        return $this->render('actions', compact('actions', 'currency', 'currencySign'));
+        return $this->render('actions', compact('actions', 'currency', 'currencySign', 'contents'));
     }
 
     public function actionRezerv()

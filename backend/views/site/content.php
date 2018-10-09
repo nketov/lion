@@ -14,7 +14,7 @@ $this->title = 'Содержание сайта'; ?>
         </div>
         <div class="box-body">
 
-            <?= $form->field($contact, 'id')->hiddenInput() ?>
+            <?= $form->field($contact, 'id')->hiddenInput()->label(false) ?>
 
             <?= $form->field($contact, 'phone')->textInput() ?>
 

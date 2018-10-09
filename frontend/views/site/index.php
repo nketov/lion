@@ -13,35 +13,35 @@ use yii\widgets\ActiveForm; ?>
     <div id="carousel" class="slide carousel carousel-fade">
         <div class="carousel-inner">
             <div class="item active">
-                <img src="/media/main-slider/1.jpg" alt="sliderImg" />
+                <img src="/images/actions/action_1" alt="sliderImg" />
                 <div class="container">
                     <div class="carousel-caption b-slider__info">
-                        <h3>Найти деталь</h3>
-                        <h2>Большой выбор</h2>
-                        <p>В наличии <span>184 900 наименований</span></p>
-                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
+                        <h3>Акция</h3>
+                        <h2><?= $contents[0]->header ?></h2>
+                        <p><?= $contents[0]->text ?></p>
+                        <a class="btn m-btn" href="/actions">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img src="/media/main-slider/2.jpg" alt="sliderImg" />
+                <img src="/images/actions/action_2" alt="sliderImg" />
                 <div class="container">
                     <div class="carousel-caption b-slider__info">
-                        <h3>Поиск среди аналогов</h3>
-                        <h2>Большая база</h2>
-                        <p>2018 <span>обновлено </span></p>
-                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
+                        <h3>Акция</h3>
+                        <h2><?= $contents[1]->header ?></h2>
+                        <p><?= $contents[1]->text ?></p>
+                        <a class="btn m-btn" href="/actions">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
             <div class="item">
-                <img src="/media/main-slider/3.jpg"  alt="sliderImg"/>
+                <img src="/images/actions/action_3"  alt="sliderImg"/>
                 <div class="container">
                     <div class="carousel-caption b-slider__info">
-                        <h3>Выгодно</h3>
-                        <h2>Поиск по всем базам</h2>
-                        <p>сотрудничаем <span>с 97 поставщтками</span></p>
-                        <a class="btn m-btn" href="/excel">смотреть<span class="fa fa-angle-right"></span></a>
+                        <h3>Акция</h3>
+                        <h2><?= $contents[2]->header ?></h2>
+                        <p><?= $contents[2]->text ?></p>
+                        <a class="btn m-btn" href="/actions">смотреть<span class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>

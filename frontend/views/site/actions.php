@@ -31,7 +31,7 @@ use common\models\Excel;
                             <th>Код</th>
                             <th>Цена</th>
                             <th>Скидка</th>
-                            <th style="padding:10px;color: #00a157;text-align: right" >Цена со скидкой</th>
+                            <th style="padding:10px;color: #00a157;text-align: right">Цена со скидкой</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -51,7 +51,11 @@ use common\models\Excel;
                                     <td style="padding:10px"><?= $action . '&nbsp%' ?></td>
                                     <td style="padding:10px;color: #00a157;text-align: right">
                                         <b><?= $price2 . '&nbsp' . $currencySign ?></b></td>
-                                    <td style="padding:10px"><button  type="button" class="btn btn-primary btn-sm cart-view" data-id="<?= $product->id?>" title="Просмотр"><i class="fa fa-eye"></i></button></td>
+                                    <td style="padding:10px">
+                                        <button type="button" class="btn btn-primary btn-sm cart-view"
+                                                data-id="<?= $product->id ?>" title="Просмотр"><i class="fa fa-eye"></i>
+                                        </button>
+                                    </td>
                                 </tr>
 
                                 <?php
@@ -68,6 +72,26 @@ use common\models\Excel;
         <p class="wow zoomInUp" data-wow-delay="0.7s">Вы получили это специальное предложение, как зарегистрированный
             пользователь </p>
         <h3 class="s-title wow zoomInUp" data-wow-delay="0.7s">Удачных покупок!</h3></div>
+    <div class="container">
+        <div class="row">
+            <img src="/images/actions/action_1" alt="sliderImg"/>
+
+            <h2 class="action-head"><?= $contents[0]->header ?></h2>
+            <p class="action-text"><?= $contents[0]->text ?></p>
+        </div>
+        <div class="row">
+            <img src="/images/actions/action_2" alt="sliderImg"/>
+
+            <h2 class="action-head"><?= $contents[1]->header ?></h2>
+            <p class="action-text"><?= $contents[1]->text ?></p>
+        </div>
+        <div class="row">
+            <img src="/images/actions/action_3" alt="sliderImg"/>
+            <h2 class="action-head"><?= $contents[2]->header ?></h2>
+            <p class="action-text"><?= $contents[2]->text ?></p>
+        </div>
+
+    </div>
     <?php } else { ?>
         <div>
             <h3>Регистрируйтесь <a href="/login"><i class="fa fa-user-plus" aria-hidden="true"></i></a> для того, чтобы
@@ -75,7 +99,6 @@ use common\models\Excel;
             <p></p>
         </div>
     <?php } ?>
-
 
     </div>
 </section>

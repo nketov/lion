@@ -5,6 +5,7 @@ namespace backend\controllers;
 use app\models\ImageUploadForm;
 use app\models\UploadForm;
 use backend\components\excel_mysql\library\Excel_mysql;
+use common\models\ActionsContent;
 use common\models\Contacts;
 use common\models\Content;
 use common\models\Currency;
@@ -34,7 +35,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'upload', 'image-upload', 'content', 'currency'],
+                        'actions' => ['logout', 'upload', 'image-upload', 'content', 'currency', 'actions-content'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -87,8 +88,28 @@ class SiteController extends Controller
         }
     }
 
+    public function actionActionsContent()
+    {
 
-    public function actionCurrency()
+
+        if (!empty($id = Yii::$app->request->post('ActionsContent')['id'])) {
+            $content = ActionsContent::findOne($id);
+            if ($content->load(Yii::$app->request->post()) && $content->upload()) {
+                return $this->render('success', ['message' => 'Данные успешно сохранены!',
+                    'title' => 'Содержание акции']);
+            }
+        }
+
+        $contents = [];
+        for ($i = 1; $i < 4; $i++) {
+            $contents[$i] = ActionsContent::findOne($i);
+        }
+
+        return $this->render('actions-content', compact('contents'));
+    }
+
+
+        public function actionCurrency()
     {
         $model = Currency::findOne(1);
 
