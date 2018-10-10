@@ -70,7 +70,7 @@ use common\models\Excel;
             </div>
         </div>
         <p class="wow zoomInUp" data-wow-delay="0.7s">Вы получили это специальное предложение, как зарегистрированный
-            пользователь </p>
+            пользовфатель </p>
         <h3 class="s-title wow zoomInUp" data-wow-delay="0.7s">Удачных покупок!</h3></div>
     <div class="container">
         <div class="row">
@@ -78,17 +78,20 @@ use common\models\Excel;
 
             <h2 class="action-head"><?= $contents[0]->header ?></h2>
             <p class="action-text"><?= $contents[0]->text ?></p>
+            <p class="action-content"><?= $contents[0]->content ?></p>
         </div>
         <div class="row">
             <img src="/images/actions/action_2" alt="sliderImg"/>
 
             <h2 class="action-head"><?= $contents[1]->header ?></h2>
             <p class="action-text"><?= $contents[1]->text ?></p>
+            <p class="action-content"><?= $contents[1]->content ?></p>
         </div>
         <div class="row">
             <img src="/images/actions/action_3" alt="sliderImg"/>
             <h2 class="action-head"><?= $contents[2]->header ?></h2>
             <p class="action-text"><?= $contents[2]->text ?></p>
+            <p class="action-content"><?= $contents[2]->content ?></p>
         </div>
 
     </div>

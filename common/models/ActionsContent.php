@@ -20,7 +20,7 @@ class ActionsContent extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['text','header'], 'string'],
+            [['text','header','content'], 'string'],
             [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType' => false],
         ];
     }
@@ -32,6 +32,7 @@ class ActionsContent extends \yii\db\ActiveRecord
             'id' => 'ID',
             'header' => 'Заголовок',
             'text' => 'Текст',
+            'content' => 'Содержание'
         ];
     }
 

@@ -20,6 +20,8 @@ $this->title = 'Содержание акций'; ?>
 
             <?= $form->field($content, 'text')->textInput() ?>
 
+            <?= $form->field($content, 'content')->textarea(['rows' => '5']) ?>
+
             <?= $form->field($content, 'image')->fileInput() ?>
 
         </div>
