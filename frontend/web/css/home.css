@@ -137,9 +137,12 @@ position: relative;
     list-style: none;
     margin-top: -7px;
     padding: 0px 0;
-    font:300 12px 'Open Sans',sans-serif;
+    margin-left: -40px;
+    font:200 12px 'Open Sans',sans-serif;
     text-transform: uppercase;
     border: none;
+    transform: translateX(30%);
+    display:inlineblock;
 }
 
 .b-topBar__nav button.user:hover{
@@ -256,13 +259,13 @@ a.m-langLink{
 
 .b-nav__logo h3{
     margin:0;
-    font-size:26px;
+    font-size:15px;
     line-height:50px
 }
 
 .b-nav__logo h3 a{
     text-decoration: none;
-    font:700 26px 'Titillium Web', sans-serif;
+    font:700 15px 'Titillium Web', sans-serif;
 }
 
 .b-nav__logo h2{
@@ -475,7 +478,19 @@ a.m-langLink{
 .b-search{
     height:300px;
     padding-top: 150px;
+
 }
+
+@media screen and (max-width: 800px) {
+ .b-search {
+    height:300px;
+    padding-top: 0px;
+    position: relative;
+
+}
+}
+
+
 
 .b-search__main{
     text-align: center;
@@ -483,7 +498,7 @@ a.m-langLink{
     margin-top: 0px;
     padding: 35px 60px 50px 60px;
     z-index: 10;
-    position: fixed;
+    position: relative;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -1893,7 +1908,7 @@ a.m-langLink{
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 15px 0;
+    padding: 5px 0;
 }
 
 .b-footer .b-nav__logo{
@@ -2072,4 +2087,7 @@ a.m-langLink{
     line-height: 30px;
     text-align: center;
 
+}
+.b-search_mobile {
+    position:relative;
 }

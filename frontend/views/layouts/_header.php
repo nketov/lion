@@ -30,29 +30,25 @@ if ($detect->isMobile()) {
     <header class="b-topBarMobile wow slideInDown" data-wow-delay="0.7s">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-xs-12">
+                <div class="col-sm-4 col-xs-12">
                     <div style=transform:translateY(0px) class="b-topBar__logo wow slideInLeft" data-wow-delay="0.3s">
                         <a href="/"><img src="/images/logo/logo.png"></a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
+                <div class="col-md-4 col-xs-12">
                     <div class="b-topBar__addrMobile">
                         <span class="fa fa-map-marker"></span>
                         <?= $headerContent->address ?>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
+                </div>   
+                <div class="col-md-4 col-xs-12">
                     <div class="b-topBar__telMobile">
                         <a class='phones' href="/contact" title="Мы работаем с 9°° до 16°°"
                            style="position: relative; top: -12px"><i class="fa fa-phone"></i><?= $contacts[0]->phone ?>
                             <br><i class="fa fa-phone"></i><?= $contacts[1]->phone ?><br><i
                                     class="fa fa-phone"></i><?= $contacts[2]->phone ?></a>
                     </div>
-                </div>
+
             </div>
             <?php
             $euro = round(Currency::getCurrency('UAH'), 3);
@@ -162,9 +158,7 @@ if ($detect->isMobile()) {
 
                         <?= Yii::$app->user->isGuest ? (
                         '                    <h3><a href="/">LION-AUTO<span>.COM.UA</span></a></h3>
-                    <p>
-                        Автозапчасти
-                    </p>
+                    
 '
                         ) : (
                         '<li style="padding-left:-10px; padding-right:-10px; margin-left:-10px; margin-right:-10px">Задолженность:</li>                        <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px"><a href="/"><i class="fa fa-history" style="font-size:36px;color:red"></i>Просроченная задолженность:</a></li>'
@@ -264,10 +258,10 @@ if ($detect->isMobile()) {
                                 . Html::endForm()
                                 . '</li>
                                     <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px">
-                                    <a href="/cart" title="Корзина"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>                                    '
+                                    <a href="/cart" title="Корзина"><i style="font-size:150%" class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>                                    '
                                  .$cartCounter.'</li>                                    
                                     <li style="padding-left:-10px; padding-right:-10px;margin-left:-10px; margin-right:-10px">
-                                    <a href="/cabinet" title="Личный кабинет"><i class="fa fa-street-view" aria-hidden="true"></i></a>
+                                    <a href="/cabinet" title="Личный кабинет"><i style="font-size:150%; padding:0" class="fa fa-street-view" aria-hidden="true"></i></a>
                                     </li>'
                             ) ?>
                         </ul>

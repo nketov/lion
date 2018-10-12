@@ -337,7 +337,8 @@
 <p><strong><em>от <?= date("d.m.Y"); ?></em> <?= Yii::$app->user->isGuest ?  yii\helpers\Html::a('войдите ', ['/login']).' чтобы заказать' : 'Заказчик:'.Yii::$app->user->identity->email  ?></strong></p>
 <h2>Крутите вниз чтобы просмотреть полностью</h2>
 
-<p><br><br><br><br><br><br><br><br><br><img class="cart" src="/images/backgrounds/cart.png" alt="cherry blossoms"></p>
+<p><br><br><br><br><br><br><br><br><br><img class="cart" src="/images/backgrounds/cart_small.png" alt="cherry blossoms"></p>
+
 <?php
 
 $rows = $cart->getQuantity(); // количество строк, tr
