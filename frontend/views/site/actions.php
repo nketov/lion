@@ -72,6 +72,18 @@ use common\models\Excel;
         <p class="wow zoomInUp" data-wow-delay="0.7s">Вы получили это специальное предложение, как зарегистрированный
             пользовфатель </p>
         <h3 class="s-title wow zoomInUp" data-wow-delay="0.7s">Удачных покупок!</h3></div>
+
+    <?php } else { ?>
+        <div>
+            <h3>Регистрируйтесь <a href="/login"><i class="fa fa-user-plus" aria-hidden="true"></i></a> для того, чтобы
+                получить персональное предложение!</h3>
+            <p></p>
+        </div>
+    <?php } ?>
+
+
+    </div>
+
     <div class="container">
         <div class="row">
             <img src="/images/actions/action_1" alt="sliderImg"/>
@@ -95,13 +107,6 @@ use common\models\Excel;
         </div>
 
     </div>
-    <?php } else { ?>
-        <div>
-            <h3>Регистрируйтесь <a href="/login"><i class="fa fa-user-plus" aria-hidden="true"></i></a> для того, чтобы
-                получить персональное предложение!</h3>
-            <p></p>
-        </div>
-    <?php } ?>
 
-    </div>
+
 </section>
