@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     .b-topBar {
         position: fixed;
         margin-left: -80px;
@@ -329,7 +329,7 @@
     h3 + p {
         padding-top: 0;
     }
-</style>
+</style> 
 <script>
     var ROOT = document.documentElement;
     var MIN = 10;
@@ -343,7 +343,8 @@
         ROOT.style.setProperty('--scroll', Math.max(0, Math.min(scroll, 100 - MIN)));
     };
     window.addEventListener('scroll', update);
-</script>
+</script> -->
+<div>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <h1>Всего позиций: <?= $cart->getQuantity() ?>
     <br>Общая сумма: <?= round($cart->summ * $currency, 2) . ' ' . $currencySign ?>
@@ -398,7 +399,7 @@ echo '</p>';
 </ul>
 
 
-
+</div>
 
 
 

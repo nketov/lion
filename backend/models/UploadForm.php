@@ -2,6 +2,7 @@
 namespace app\models;
 
 use yii\base\Model;
+use yii\helpers\Url;
 use yii\web\UploadedFile;
 
 class UploadForm extends Model
@@ -21,7 +22,9 @@ return [
 public function upload()
 {
 if ($this->validate()) {
-$this->excelFile->saveAs('uploads/excel' . '.' . $this->excelFile->extension);
+$this->excelFile->saveAs('uploads/excel' . '.' . $this->excelFile->extension,false);
+$this->excelFile->saveAs(Url::to('@frontend/web/documents/') . 'price.' . $this->excelFile->extension);
+
 return true;
 } else {
 return false;
