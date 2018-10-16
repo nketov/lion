@@ -185,6 +185,21 @@
         object-fit: cover;
         width: 100vw;
     }
+    
+    @media (min-width: 768px) {
+        body > p:nth-of-type(1):after {
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+        }
+    }
+
+    .cart img {
+        height: calc((100 - var(--scroll)) * 1vh);
+        min-height: 10vh;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100vw;
+    }
 
     @media (min-width: 768px) {
         .cart img {
