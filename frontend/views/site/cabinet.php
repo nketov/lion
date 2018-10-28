@@ -1,3 +1,6 @@
+<?php
+   require("_social.php");
+?>
 <br><br><br>
 <? use common\models\Excel;
 use yii\helpers\Html;
@@ -26,11 +29,8 @@ if (!Yii::$app->user->isGuest) {
                         <p class="wow zoomInUp" data-wow-delay="0.7s"><?= $phone_string ?> <a href="" title="Изменить"><i
                                         class="fa fa-pencil-square-o phone-change" aria-hidden="true"></i></a></p>
                         <h3 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.7s">Оставить комментарий</h3>
-                        <p class="wow zoomInUp" data-wow-delay="0.7s"><a href="" title="Оставить отзыв на fb"><i
-                                        class="fa fa-facebook" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                    href=""
-                                    title="Оставить отзыв на G+"><i
-                                        class="fa fa-google-plus" aria-hidden="true"></i></a></p>
+                        <p class="wow zoomInUp" data-wow-delay="0.7s"><a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;p[images][0]=<?php echo $image;?>','sharer','toolbar=0,status=0,width=700,height=400');" href="javascript: void(0)">
+    <span class="fa fa-facebook-square" ></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://plus.google.com/share?url=http://lion-auto.com.ua"><span class="fa fa-google-plus-square"></span></a></p>
 
                     </div>
                     <div id="history" class="col-md-1">

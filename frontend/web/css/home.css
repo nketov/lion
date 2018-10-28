@@ -1904,7 +1904,7 @@ a.m-langLink{
 /* Footer */
 .b-footer{
     position: relative;
-    top-bottom: 100%;
+    top: 50vh;
     left: 0;
     bottom: 0;
     width: 100%;
