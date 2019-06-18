@@ -18,7 +18,6 @@ use yii\widgets\ActiveForm;
             ],
         ]) ?>
         <div class="b-search__main-form wow zoomInUp" data-wow-delay="0.3s">
-
             <div class="row">
                 <div class="col-xs-12 col-md-9">
                     <div class="m-firstSelects">

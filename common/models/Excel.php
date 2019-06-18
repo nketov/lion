@@ -78,8 +78,8 @@ class Excel extends \yii\db\ActiveRecord
             if (!empty($val))
             $result[trim($val)] = trim($val);
         }
+        unset($result['']);
         return $result;
-
     }
 
     public  function getDiscountPrice()
